@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bb6707x8yphj0"]
+
+[ext_resource type="Script" uid="uid://82ey805iu6np" path="res://scripts/button.gd" id="1_labhj"]
+
+[node name="Control" type="Control" unique_id=1949115812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1970877458]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.0
+offset_right = 137.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[node name="Button" type="Button" parent="." unique_id=1636177736]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -18.0
+offset_right = 81.5
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+script = ExtResource("1_labhj")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
