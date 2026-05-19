@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8fw"]
 size = Vector2(127, 127)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_fyrc7"]
-a = Vector2(108, 0)
-b = Vector2(63, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyrc7"]
+size = Vector2(164, 151)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=281380987]
 script = ExtResource("1_ls8fw")
@@ -23,7 +22,7 @@ shape = SubResource("RectangleShape2D_ls8fw")
 [node name="Area2D" type="Area2D" parent="." unique_id=1871773331]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1659202750]
-shape = SubResource("SegmentShape2D_fyrc7")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_fyrc7")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

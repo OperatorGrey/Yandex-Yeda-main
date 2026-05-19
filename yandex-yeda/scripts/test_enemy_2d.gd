@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
+@onready 
+func _ready() -> void:
+	player.hit.connect(_on_hit)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == 'player_hitbox':
 		print('Bolno')
-		body.respawn()
+		emit_signal(hit)

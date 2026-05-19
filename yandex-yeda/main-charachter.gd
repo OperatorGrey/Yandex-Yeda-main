@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-
-
-var start_pos = Vector2 (690, 168)
+signal hit
+class_name player
+var start_pos = Vector2 (690.0, 168.0)
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Yandex_Yeda"
-run/main_scene="uid://cg8n5ofh1i3cn"
+run/main_scene="uid://bb6707x8yphj0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

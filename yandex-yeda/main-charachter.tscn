@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y5v1"]
 size = Vector2(128, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ou1"]
+size = Vector2(174, 159)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1417989640]
 script = ExtResource("1_2y5v1")
 
@@ -16,3 +19,9 @@ texture = ExtResource("2_j3ou1")
 shape = SubResource("RectangleShape2D_2y5v1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1612101590]
+
+[node name="player_hitbox" type="Area2D" parent="." unique_id=419671164]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox" unique_id=1664305744]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_j3ou1")
