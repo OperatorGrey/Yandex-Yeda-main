@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://4l4jqdxyk6v7"]
+
+[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="1_jbe27"]
+[ext_resource type="Script" uid="uid://cu1lrxgoydvaw" path="res://scripts/test_enemy_2d.gd" id="1_ls8fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8fw"]
+size = Vector2(127, 127)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fyrc7"]
+a = Vector2(108, 0)
+b = Vector2(63, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=281380987]
+script = ExtResource("1_ls8fw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1516714779]
+texture = ExtResource("1_jbe27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004589446]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ls8fw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1871773331]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1659202750]
+shape = SubResource("SegmentShape2D_fyrc7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
