@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-
 signal hit
-class_name player
-var start_pos = Vector2 (690.0, 168.0)
+var start_pos = Vector2 (142.0, 448.0)
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -25,6 +23,22 @@ func _physics_process(delta: float) -> void:
 		#flip_h on left
 	move_and_slide()
 func respawn(): 
+	velocity.x = 0
+	
 	position = start_pos
 
+
+
+
+func _on_hit() -> void:
+	respawn()
+	
 	move_and_slide()
+
+
+func _on_player_hitbox_area_entered(area: Area2D) -> void:
+	if area.name == 'enemy_hitbox' or 'acid_puddle' in area.name:
+		print('Bolno')
+		hit.emit()
+	elif  area.name == 'checkpoint':
+		start_pos = area.position
