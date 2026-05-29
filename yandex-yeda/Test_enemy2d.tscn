@@ -14,6 +14,7 @@ script = ExtResource("1_ls8fw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1516714779]
 texture = ExtResource("1_jbe27")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004589446]
 position = Vector2(-0.5, 0.5)
@@ -25,4 +26,7 @@ shape = SubResource("RectangleShape2D_ls8fw")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fyrc7")
 
+[node name="Timer" type="Timer" parent="." unique_id=304838636]
+
 [connection signal="area_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -29,4 +29,5 @@ shape = SubResource("RectangleShape2D_2y5v1")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_j3ou1")
 
+[connection signal="hit" from="." to="." method="_on_hit"]
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]

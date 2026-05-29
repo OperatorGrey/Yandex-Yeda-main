@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dp8y2r3in6txk" path="res://acid_puddle.tscn" id="1_v8kj3"]
 [ext_resource type="PackedScene" uid="uid://gax8y2krdyex" path="res://main-charachter.tscn" id="2_ootpb"]
 [ext_resource type="PackedScene" uid="uid://butmg5elm05eu" path="res://checkpoint.tscn" id="3_crycw"]
-[ext_resource type="PackedScene" uid="uid://4l4jqdxyk6v7" path="res://Test_enemy2d.tscn" id="3_ootpb"]
-[ext_resource type="Script" uid="uid://cofro7fcevx7g" path="res://scripts/path_follow_2d.gd" id="3_v38iq"]
+[ext_resource type="PackedScene" uid="uid://bm4j1rvdnnors" path="res://scripted_enemy.tscn" id="5_v8kj3"]
+[ext_resource type="Script" uid="uid://b7wjfnwk1uh7x" path="res://scripts/health.gd" id="6_crycw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v38iq"]
 texture = ExtResource("1_dopym")
@@ -17,12 +17,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_v38iq")
-
-[sub_resource type="Curve2D" id="Curve2D_ootpb"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1298, 439, 0, 0, 0, 0, 853, 442)
-}
-point_count = 3
 
 [node name="Node2D" type="Node2D" unique_id=58989182]
 metadata/_edit_horizontal_guides_ = [449.0]
@@ -53,12 +47,23 @@ offset_bottom = 123.0
 theme_override_font_sizes/font_size = 50
 text = "Tutorial"
 
-[node name="Path2D" type="Path2D" parent="." unique_id=1826482610]
-curve = SubResource("Curve2D_ootpb")
+[node name="Path2D" parent="." unique_id=212816321 instance=ExtResource("5_v8kj3")]
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=22939317]
-position = Vector2(853, 442)
-rotation = -0.0067414707
-script = ExtResource("3_v38iq")
+[node name="User Interface" type="CanvasLayer" parent="." unique_id=539898269]
 
-[node name="CharacterBody2D" parent="Path2D/PathFollow2D" unique_id=281380987 instance=ExtResource("3_ootpb")]
+[node name="UI" type="Control" parent="User Interface" unique_id=1255349202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="Label" parent="User Interface/UI" unique_id=3548922 node_paths=PackedStringArray("hp")]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 50
+text = "HP: "
+script = ExtResource("6_crycw")
+hp = NodePath("../../../player")

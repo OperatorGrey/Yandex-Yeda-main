@@ -1,11 +1,15 @@
 extends CharacterBody2D
 
-signal hit
 var start_pos = Vector2 (142.0, 448.0)
-const SPEED = 300.0
+var SPEED = 0.0
 const JUMP_VELOCITY = -400.0
+var hp = 3
 
 
+func _ready() -> void:
+	Eventbus.attack_animation_end.connect(_hitcheck)
+	Eventbus.player_hit.connect(_on_hit)
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -18,9 +22,15 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
 		#flip_h on left
+	if Input.is_action_pressed("ui_left"):
+		SPEED = 300
+		velocity.x = direction * SPEED
+	elif Input.is_action_pressed("ui_right"):
+		SPEED = 300
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 func respawn(): 
 	velocity.x = 0
@@ -30,15 +40,22 @@ func respawn():
 
 
 
-func _on_hit() -> void:
-	respawn()
-	
+func _on_hit(new_hp) -> void:
+	if hp >= 1:
+		hp = hp - 1
+	else:
+		respawn()
 	move_and_slide()
 
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
-	if area.name == 'enemy_hitbox' or 'acid_puddle' in area.name:
-		print('Bolno')
-		hit.emit()
-	elif  area.name == 'checkpoint':
+	if  area.name == 'checkpoint':
 		start_pos = area.position
+		
+	elif 'acid_puddle' in area.name:
+		respawn()
+
+func _hitcheck():
+	for area in $player_hitbox.get_overlapping_areas():
+		if area.name == 'enemy_hitbox':
+			Eventbus.player_hit.emit(hp)
