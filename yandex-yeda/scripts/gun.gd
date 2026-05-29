@@ -2,13 +2,22 @@ extends Node2D
 
 var num_bullets = 1
 
+var gun_picked_up = false
+
 var direction_left = false
 
 var bullet_prefab = preload("res://bullet.tscn")
 
+func _ready() -> void:
+	Eventbus.gun_picked_up.connect(on_pick_up)
+
+func on_pick_up():
+	gun_picked_up = true
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		if gun_picked_up == true:
+			shoot()
 	if Input.is_action_just_pressed("ui_left"):
 		direction_left = true
 	if Input.is_action_just_pressed("ui_right"):

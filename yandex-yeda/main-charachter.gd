@@ -44,6 +44,7 @@ func _on_hit(new_hp) -> void:
 	if hp >= 1:
 		hp = hp - 1
 	else:
+		hp = 3
 		respawn()
 	move_and_slide()
 
@@ -54,6 +55,8 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		
 	elif 'acid_puddle' in area.name:
 		respawn()
+	elif area.name == 'gun_prop':
+		Eventbus.gun_picked_up.emit()
 
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
