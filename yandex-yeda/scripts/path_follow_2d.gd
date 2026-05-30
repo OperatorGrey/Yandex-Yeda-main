@@ -7,6 +7,8 @@ var speed = 0.5
 func _ready() -> void:
 	Eventbus.attack_animation_start.connect(_stop)
 	Eventbus.attack_animation_end.connect(_restart)
+	Eventbus.enemy_stun_start.connect(_stop)
+	Eventbus.enemy_stun_stop.connect(_restart)
 func _process(delta):
 	progress_ratio += delta * speed
 func _stop():
