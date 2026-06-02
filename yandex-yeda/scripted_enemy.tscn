@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://4l4jqdxyk6v7" path="res://Test_enemy2d.tscn" id="2_pdkq6"]
 
 [sub_resource type="Curve2D" id="Curve2D_ootpb"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1298, 439, 0, 0, 0, 0, 853, 442)
+"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1189, 425, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 

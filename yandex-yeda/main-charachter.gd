@@ -57,6 +57,8 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		respawn()
 	elif area.name == 'gun_prop':
 		Eventbus.gun_picked_up.emit()
+	elif area.name == 'level1_exit':
+		get_tree().change_scene_to_file("res://level1_passed.tscn")
 
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
