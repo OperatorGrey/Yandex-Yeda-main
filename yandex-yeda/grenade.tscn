@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cli82hsvh6q1v"]
+
+[ext_resource type="Script" uid="uid://def78h03uuuj0" path="res://scripts/grenade.gd" id="1_24g56"]
+[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="1_gju2f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_24g56"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga5sg"]
+radius = 25.079872
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1udh"]
+radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeyyv"]
+size = Vector2(139, 115)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=290426729]
+physics_material_override = SubResource("PhysicsMaterial_24g56")
+script = ExtResource("1_24g56")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=298087507]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(0.2734375, 0.296875)
+texture = ExtResource("1_gju2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238677120]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ga5sg")
+
+[node name="grenade_physics" type="Area2D" parent="." unique_id=725855892]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grenade_physics" unique_id=2138021391]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_o1udh")
+
+[node name="grenade_hitbox" type="Area2D" parent="." unique_id=1759604558]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grenade_hitbox" unique_id=741040760]
+shape = SubResource("RectangleShape2D_aeyyv")
+
+[node name="Timer" type="Timer" parent="." unique_id=697531894]
+wait_time = 3.0
+
+[connection signal="area_entered" from="grenade_physics" to="." method="_on_grenade_physics_area_entered"]
+[connection signal="area_exited" from="grenade_physics" to="." method="_on_grenade_physics_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

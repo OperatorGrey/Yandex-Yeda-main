@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://4l4jqdxyk6v7"]
+[gd_scene format=3 uid="uid://ck22fvkv10rc2"]
 
-[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="1_jbe27"]
-[ext_resource type="Script" uid="uid://cu1lrxgoydvaw" path="res://scripts/test_enemy_2d.gd" id="1_ls8fw"]
+[ext_resource type="Script" uid="uid://1bfa0k7u2jqp" path="res://scripts/test_enemy_2d_grenada.gd" id="1_pl0xd"]
+[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="2_ra8iv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8fw"]
 size = Vector2(127, 127)
@@ -9,11 +9,14 @@ size = Vector2(127, 127)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyrc7"]
 size = Vector2(164, 151)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra8iv"]
+size = Vector2(557, 224)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=281380987]
-script = ExtResource("1_ls8fw")
+script = ExtResource("1_pl0xd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1516714779]
-texture = ExtResource("1_jbe27")
+texture = ExtResource("2_ra8iv")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004589446]
@@ -29,6 +32,18 @@ shape = SubResource("RectangleShape2D_fyrc7")
 [node name="attack_timer" type="Timer" parent="." unique_id=304838636]
 
 [node name="stun_timer" type="Timer" parent="." unique_id=1263631368]
+
+[node name="left_vision" type="Area2D" parent="." unique_id=1690199485]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_vision" unique_id=1890787929]
+position = Vector2(-278, 1)
+shape = SubResource("RectangleShape2D_ra8iv")
+
+[node name="right_vision" type="Area2D" parent="." unique_id=1416615751]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_vision" unique_id=1559578415]
+position = Vector2(278, 1)
+shape = SubResource("RectangleShape2D_ra8iv")
 
 [connection signal="area_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_timer_timeout"]

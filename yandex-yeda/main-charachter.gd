@@ -9,6 +9,7 @@ var hp = 3
 func _ready() -> void:
 	Eventbus.attack_animation_end.connect(_hitcheck)
 	Eventbus.player_hit.connect(_on_hit)
+	Eventbus.grenade_explosion.connect(_hitcheck)
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -44,6 +45,7 @@ func _on_hit(new_hp) -> void:
 	if hp >= 1:
 		hp = hp - 1
 	else:
+		hp = 3
 		respawn()
 	move_and_slide()
 
@@ -54,8 +56,17 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		
 	elif 'acid_puddle' in area.name:
 		respawn()
+	elif area.name == 'gun_prop':
+		Eventbus.gun_picked_up.emit()
+	elif area.name == 'level1_exit':
+		get_tree().change_scene_to_file("res://level1_passed.tscn")
 
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'enemy_hitbox':
+			Eventbus.player_hit.emit(hp)
+			
+func _grenade_hitcheck():
+	for area in $player_hitbox.get_overlapping_areas():
+		if area.name == 'grenade_hitbox':
 			Eventbus.player_hit.emit(hp)

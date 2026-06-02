@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var grenade_prefab = preload("res://grenade.tscn")
 
 var hitpoints = 5
 
@@ -17,8 +18,6 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	elif area.name == "bullet1":
 		hitpoints = hitpoints - 2
 		_stun()
-	if area.name == "player_hitbox":
-		_attack()
 	if hitpoints <= 0:
 		queue_free()
 
@@ -33,3 +32,4 @@ func _on_timer_timeout() -> void:
 
 func _on_stun_timer_timeout() -> void:
 	get_parent().is_stunned=false
+	
