@@ -6,9 +6,9 @@ var is_on_floor: bool = false
 #Physics checks
 func _ready() -> void:
 	if throwing_direction_right == true:
-		apply_impulse(Vector2(200, 0)) 
+		apply_impulse(Vector2(1000, 400)) 
 	elif throwing_direction_right == false:
-		apply_impulse(Vector2(-200, 0))
+		apply_impulse(Vector2(1000, 400))
 func _on_grenade_physics_area_entered(area: Area2D) -> void:
 	is_on_floor = true
 func _on_grenade_physics_area_exited(area: Area2D) -> void:

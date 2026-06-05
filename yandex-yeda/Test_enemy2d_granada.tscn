@@ -30,6 +30,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fyrc7")
 
 [node name="attack_timer" type="Timer" parent="." unique_id=304838636]
+autostart = true
 
 [node name="stun_timer" type="Timer" parent="." unique_id=1263631368]
 
@@ -48,3 +49,5 @@ shape = SubResource("RectangleShape2D_ra8iv")
 [connection signal="area_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="stun_timer" to="." method="_on_stun_timer_timeout"]
+[connection signal="area_entered" from="left_vision" to="." method="_on_left_vision_area_entered"]
+[connection signal="area_entered" from="right_vision" to="." method="_on_right_vision_area_entered"]

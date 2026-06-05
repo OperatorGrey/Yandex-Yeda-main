@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bomwd58o066fs"]
+
+[ext_resource type="Script" uid="uid://cofro7fcevx7g" path="res://scripts/path_follow_2d.gd" id="1_wmkb1"]
+[ext_resource type="PackedScene" uid="uid://ck22fvkv10rc2" path="res://Test_enemy2d_granada.tscn" id="2_ay1x4"]
+
+[sub_resource type="Curve2D" id="Curve2D_yh2y8"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 224, -3)
+}
+point_count = 3
+
+[node name="Path2D" type="Path2D" unique_id=1916726924]
+curve = SubResource("Curve2D_yh2y8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=2142284075]
+position = Vector2(-332, -1)
+rotation = -0.009063196
+rotates = false
+script = ExtResource("1_wmkb1")
+
+[node name="CharacterBody2D" parent="PathFollow2D" unique_id=281380987 instance=ExtResource("2_ay1x4")]
