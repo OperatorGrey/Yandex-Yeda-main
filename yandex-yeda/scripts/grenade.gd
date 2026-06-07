@@ -9,15 +9,7 @@ func _ready() -> void:
 		apply_impulse(Vector2(1000, 400)) 
 	elif throwing_direction_right == false:
 		apply_impulse(Vector2(1000, 400))
-func _on_grenade_physics_area_entered(area: Area2D) -> void:
-	is_on_floor = true
-func _on_grenade_physics_area_exited(area: Area2D) -> void:
-	is_on_floor = false
-
-func _process(delta: float) -> void:
-	if is_on_floor == true:
-		$Timer.start()
-		
+	$Timer.start()
 func _on_timer_timeout() -> void:
 	Eventbus.grenade_explosion.emit()
 	queue_free()

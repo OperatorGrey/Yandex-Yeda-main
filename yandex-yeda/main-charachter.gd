@@ -9,7 +9,7 @@ var hp = 3
 func _ready() -> void:
 	Eventbus.attack_animation_end.connect(_hitcheck)
 	Eventbus.player_hit.connect(_on_hit)
-	Eventbus.grenade_explosion.connect(_hitcheck)
+	Eventbus.grenade_explosion.connect(_grenade_hitcheck)
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -47,6 +47,7 @@ func _on_hit(new_hp) -> void:
 	else:
 		hp = 3
 		respawn()
+	print(r'{hp}')
 	move_and_slide()
 
 

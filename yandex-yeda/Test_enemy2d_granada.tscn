@@ -50,4 +50,6 @@ shape = SubResource("RectangleShape2D_ra8iv")
 [connection signal="timeout" from="attack_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="stun_timer" to="." method="_on_stun_timer_timeout"]
 [connection signal="area_entered" from="left_vision" to="." method="_on_left_vision_area_entered"]
+[connection signal="area_exited" from="left_vision" to="." method="_on_left_vision_area_exited"]
 [connection signal="area_entered" from="right_vision" to="." method="_on_right_vision_area_entered"]
+[connection signal="area_exited" from="right_vision" to="." method="_on_right_vision_area_exited"]

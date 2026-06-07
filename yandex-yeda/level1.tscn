@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dp8y2r3in6txk" path="res://acid_puddle.tscn" id="1_v8kj3"]
 [ext_resource type="PackedScene" uid="uid://gax8y2krdyex" path="res://main-charachter.tscn" id="2_ootpb"]
 [ext_resource type="PackedScene" uid="uid://butmg5elm05eu" path="res://checkpoint.tscn" id="3_crycw"]
+[ext_resource type="PackedScene" uid="uid://bk5sns1k8jfo3" path="res://user_interface.tscn" id="3_xy4tn"]
 [ext_resource type="PackedScene" uid="uid://bxbjct8fxn0yk" path="res://gun_prop.tscn" id="4_v38iq"]
 [ext_resource type="PackedScene" uid="uid://bm4j1rvdnnors" path="res://scripted_enemy.tscn" id="5_v8kj3"]
-[ext_resource type="Script" uid="uid://b7wjfnwk1uh7x" path="res://scripts/health.gd" id="6_crycw"]
 [ext_resource type="PackedScene" uid="uid://blroepnf1x14v" path="res://scripted_enemy_1.tscn" id="8_xy4tn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v38iq"]
@@ -20,35 +20,35 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_v38iq")
 
-[sub_resource type="Curve2D" id="Curve2D_xy4tn"]
+[sub_resource type="Curve2D" id="Curve2D_usj0q"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1195, 443, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_mx85b"]
+[sub_resource type="Curve2D" id="Curve2D_5j5gb"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1189, 442, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_usj0q"]
+[sub_resource type="Curve2D" id="Curve2D_mx85b"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1021, 444, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_5j5gb"]
+[sub_resource type="Curve2D" id="Curve2D_hx44q"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_hx44q"]
+[sub_resource type="Curve2D" id="Curve2D_n8vhr"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
@@ -68,24 +68,7 @@ tile_set = SubResource("TileSet_v8kj3")
 [node name="player" parent="." unique_id=1417989640 instance=ExtResource("2_ootpb")]
 position = Vector2(143, 446)
 
-[node name="User Interface" type="CanvasLayer" parent="." unique_id=539898269]
-
-[node name="UI" type="Control" parent="User Interface" unique_id=1255349202]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Health" type="Label" parent="User Interface/UI" unique_id=3548922 node_paths=PackedStringArray("hp")]
-layout_mode = 0
-offset_right = 176.0
-offset_bottom = 115.0
-theme_override_font_sizes/font_size = 50
-text = "HP: 3"
-script = ExtResource("6_crycw")
-hp = NodePath("../../../player")
+[node name="User Interface" parent="." unique_id=1309881729 instance=ExtResource("3_xy4tn")]
 
 [node name="acid_puddle" parent="." unique_id=562781060 instance=ExtResource("1_v8kj3")]
 position = Vector2(1599, 1409)
@@ -96,7 +79,7 @@ position = Vector2(2706, 1475)
 
 [node name="Path2D" parent="." unique_id=212816321 instance=ExtResource("5_v8kj3")]
 position = Vector2(2447, 1010)
-curve = SubResource("Curve2D_xy4tn")
+curve = SubResource("Curve2D_usj0q")
 
 [node name="checkpoint" parent="." unique_id=2080467967 instance=ExtResource("3_crycw")]
 position = Vector2(2442, 1288)
@@ -113,19 +96,19 @@ position = Vector2(8051, 901)
 
 [node name="Path2D2" parent="." unique_id=2075143229 instance=ExtResource("5_v8kj3")]
 position = Vector2(5213, 625)
-curve = SubResource("Curve2D_mx85b")
+curve = SubResource("Curve2D_5j5gb")
 
 [node name="Path2D3" parent="." unique_id=436108445 instance=ExtResource("8_xy4tn")]
 position = Vector2(5962, 388)
-curve = SubResource("Curve2D_usj0q")
+curve = SubResource("Curve2D_mx85b")
 
 [node name="Path2D4" parent="." unique_id=599699443 instance=ExtResource("8_xy4tn")]
 position = Vector2(7407, 630)
-curve = SubResource("Curve2D_5j5gb")
+curve = SubResource("Curve2D_hx44q")
 
 [node name="Path2D5" parent="." unique_id=1592040368 instance=ExtResource("8_xy4tn")]
 position = Vector2(8078, 626)
-curve = SubResource("Curve2D_hx44q")
+curve = SubResource("Curve2D_n8vhr")
 
 [node name="level1_exit" type="Area2D" parent="." unique_id=1210920686]
 position = Vector2(9440, 979)
