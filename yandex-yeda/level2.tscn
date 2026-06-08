@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jrynhltq6cp4" path="res://Station-tile-black (1).png" id="1_r40rm"]
 [ext_resource type="PackedScene" uid="uid://gax8y2krdyex" path="res://main-charachter.tscn" id="2_6q4t8"]
 [ext_resource type="PackedScene" uid="uid://bomwd58o066fs" path="res://scripted_grenade_enemy.tscn" id="3_6q4t8"]
+[ext_resource type="Script" uid="uid://2xmdiiwhd0g6" path="res://scripts/gun_iniciator.gd" id="5_r6vdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tcn8"]
 texture = ExtResource("1_r40rm")
@@ -19,9 +20,12 @@ sources/0 = SubResource("TileSetAtlasSource_8tcn8")
 [sub_resource type="Curve2D" id="Curve2D_r6vdu"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 224, -3)
+"points": PackedVector2Array(0, 0, 0, 0, -459, -5, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 177, -4, 0, 0, 0, 0, -459, -5)
 }
-point_count = 3
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i3m3"]
+size = Vector2(213.5, 141)
 
 [node name="Node2D" type="Node2D" unique_id=595747922]
 
@@ -31,9 +35,18 @@ point_count = 3
 tile_map_data = PackedByteArray("AAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAARAAgAAAAAAAAAAAARAAcAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAASAAkAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAUAAgAAAAAAAAAAAAUAAcAAAAAAAAAAAAVAAcAAAAAAAAAAAAVAAgAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAWAAgAAAAAAAAAAAAWAAcAAAAAAAAAAAAXAAcAAAAAAAAAAAAXAAgAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAcAAAAAAAAAAAAYAAgAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAZAAgAAAAAAAAAAAAZAAcAAAAAAAAAAAAaAAcAAAAAAAAAAAAaAAgAAAAAAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAAbAAgAAAAAAAAAAAAbAAcAAAAAAAAAAAAcAAcAAAAAAAAAAAAcAAgAAAAAAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAAAAAAAAAAdAAgAAAAAAAAAAAAdAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAeAAgAAAAAAAAAAAAeAAkAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAD//wcAAAAAAAAAAAD+/wcAAAAAAAAAAAACAAgAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAD//wgAAAAAAAAAAAD+/wgAAAAAAAAAAAD+/wkAAAAAAAAAAAD//wkAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAD9/wcAAAAAAAAAAAD9/wgAAAAAAAAAAAD9/wkAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_r6vdu")
 
-[node name="CharacterBody2D" parent="." unique_id=1417989640 instance=ExtResource("2_6q4t8")]
-position = Vector2(377, 382)
+[node name="player" parent="." unique_id=1417989640 instance=ExtResource("2_6q4t8")]
+position = Vector2(1552, 356)
 
 [node name="Path2D" parent="." unique_id=1916726924 instance=ExtResource("3_6q4t8")]
-position = Vector2(1635, 371)
+position = Vector2(1080, 371)
 curve = SubResource("Curve2D_r6vdu")
+
+[node name="gun_iniciator" type="Area2D" parent="." unique_id=1158711993]
+script = ExtResource("5_r6vdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gun_iniciator" unique_id=414633163]
+position = Vector2(358.25, 373)
+shape = SubResource("RectangleShape2D_8i3m3")
+
+[connection signal="area_entered" from="gun_iniciator" to="gun_iniciator" method="_on_area_entered"]

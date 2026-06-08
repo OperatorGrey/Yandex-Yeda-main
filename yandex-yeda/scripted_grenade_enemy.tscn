@@ -6,16 +6,17 @@
 [sub_resource type="Curve2D" id="Curve2D_yh2y8"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 224, -3)
+"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 164, -2, 0, 0, 0, 0, -332, -1)
 }
-point_count = 3
+point_count = 4
 
 [node name="Path2D" type="Path2D" unique_id=1916726924]
 curve = SubResource("Curve2D_yh2y8")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=2142284075]
-position = Vector2(-332, -1)
+position = Vector2(-140.36247, -2.7368963)
 rotation = -0.009063196
+progress = 191.64417
 rotates = false
 script = ExtResource("1_wmkb1")
 
