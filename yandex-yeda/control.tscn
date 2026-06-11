@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bb6707x8yphj0"]
 
+[ext_resource type="Script" uid="uid://xj3vbvjyb05w" path="res://scripts/button1.gd" id="1_62e2m"]
 [ext_resource type="Script" uid="uid://82ey805iu6np" path="res://scripts/button.gd" id="1_labhj"]
 
 [node name="Control" type="Control" unique_id=1949115812]
@@ -36,7 +37,7 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
-script = ExtResource("1_labhj")
+script = ExtResource("1_62e2m")
 
 [node name="Button2" type="Button" parent="." unique_id=1011323006]
 layout_mode = 1

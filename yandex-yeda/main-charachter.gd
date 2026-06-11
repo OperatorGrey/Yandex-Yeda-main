@@ -4,6 +4,8 @@ var start_pos = Vector2 (142.0, 448.0)
 var SPEED = 0.0
 const JUMP_VELOCITY = -400.0
 var hp = 3
+var double_jump = false
+var jump_counter = 0
 
 
 func _ready() -> void:
@@ -15,10 +17,19 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	if is_on_floor():
+		jump_counter = 0
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor():
+				velocity.y = JUMP_VELOCITY
+				jump_counter = 1
+		else:
+			if double_jump == true:
+				if jump_counter == 1:
+					velocity.y = JUMP_VELOCITY
+					jump_counter = 2
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -61,6 +72,8 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		Eventbus.gun_picked_up.emit()
 	elif area.name == 'level1_exit':
 		get_tree().change_scene_to_file("res://level1_passed.tscn")
+	elif area.name == 'jumpboots_prop':
+		double_jump = true
 
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
