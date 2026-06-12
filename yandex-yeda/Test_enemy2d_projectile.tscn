@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bqsec7t6125ta"]
+
+[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="2_27xgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8fw"]
+size = Vector2(127, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyrc7"]
+size = Vector2(164, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra8iv"]
+size = Vector2(322.5, 224)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=281380987]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1516714779]
+texture = ExtResource("2_27xgm")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004589446]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ls8fw")
+
+[node name="enemy_hitbox" type="Area2D" parent="." unique_id=1871773331]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox" unique_id=1659202750]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_fyrc7")
+
+[node name="attack_timer" type="Timer" parent="." unique_id=304838636]
+autostart = true
+
+[node name="stun_timer" type="Timer" parent="." unique_id=1263631368]
+
+[node name="left_vision" type="Area2D" parent="." unique_id=1690199485]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_vision" unique_id=1890787929]
+position = Vector2(-160.75, 1)
+shape = SubResource("RectangleShape2D_ra8iv")
+
+[node name="right_vision" type="Area2D" parent="." unique_id=1416615751]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_vision" unique_id=1559578415]
+position = Vector2(162, 0)
+shape = SubResource("RectangleShape2D_ra8iv")
+
+[connection signal="area_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="stun_timer" to="." method="_on_stun_timer_timeout"]
+[connection signal="area_entered" from="left_vision" to="." method="_on_left_vision_area_entered"]
+[connection signal="area_exited" from="left_vision" to="." method="_on_left_vision_area_exited"]
+[connection signal="area_entered" from="right_vision" to="." method="_on_right_vision_area_entered"]
+[connection signal="area_exited" from="right_vision" to="." method="_on_right_vision_area_exited"]

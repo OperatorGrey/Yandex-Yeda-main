@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://meo8ywss5x7p"]
+
+[ext_resource type="Script" uid="uid://cofro7fcevx7g" path="res://scripts/path_follow_2d.gd" id="1_aivpx"]
+[ext_resource type="PackedScene" uid="uid://bqsec7t6125ta" path="res://Test_enemy2d_projectile.tscn" id="2_w87a6"]
+[ext_resource type="Script" uid="uid://b46o46r7laha4" path="res://scripts/test_enemy_2d_projectile.gd" id="3_bxybq"]
+
+[sub_resource type="Curve2D" id="Curve2D_yh2y8"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 164, -2, 0, 0, 0, 0, -332, -1)
+}
+point_count = 4
+
+[node name="Path2D" type="Path2D" unique_id=1916726924]
+curve = SubResource("Curve2D_yh2y8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=2142284075]
+position = Vector2(-140.36247, -2.7368963)
+rotation = -0.009063196
+progress = 191.64417
+rotates = false
+script = ExtResource("1_aivpx")
+
+[node name="CharacterBody2D" parent="PathFollow2D" unique_id=281380987 instance=ExtResource("2_w87a6")]
+position = Vector2(140.3319, 4.008899)
+rotation = 0.009063196
+script = ExtResource("3_bxybq")
