@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -400.0
 var hp = 3
 var double_jump = false
 var jump_counter = 0
+var ammo1 = 1
+var ammo2 = 1
 
 
 func _ready() -> void:
@@ -74,6 +76,10 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		get_tree().change_scene_to_file("res://level1_passed.tscn")
 	elif area.name == 'jumpboots_prop':
 		double_jump = true
+	elif 'ammo1' in area.name:
+		ammo1 = ammo1 + 10;
+	elif 'ammo2' in area.name:
+		ammo2 = ammo2 + 10
 
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():

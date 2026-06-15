@@ -11,6 +11,10 @@ var direction_left = false
 var bullet_prefab = preload("res://bullet.tscn")
 var bullet_prefab1 = preload("res://bullet1.tscn")
 
+var ammo1
+var ammo2
+
+
 func _ready() -> void:
 	Eventbus.gun_picked_up.connect(on_pick_up)
 
@@ -18,6 +22,8 @@ func on_pick_up():
 	gun_picked_up = true
 
 func _process(delta: float) -> void:
+	ammo1 = get_parent().ammo1
+	ammo2 = get_parent().ammo2
 	if Input.is_action_just_pressed("shoot"):
 		if gun_picked_up == true:
 			shoot()
@@ -30,14 +36,23 @@ func _process(delta: float) -> void:
 			ammo_type = 2
 		else:
 			ammo_type = 1
+		Eventbus.ammo_type_changed.emit(ammo_type)
 
 func spawn_bullet(direction : Vector2):
 		# Spawn a bullet
 	var bullet
 	if ammo_type == 1:
-		bullet = bullet_prefab.instantiate()
+		if ammo1 > 0:
+			bullet = bullet_prefab.instantiate()
+			get_parent().ammo1 = ammo1 - 1
+		else:
+			return
 	elif ammo_type == 2:
-		bullet = bullet_prefab1.instantiate()
+		if ammo2 > 0:
+			bullet = bullet_prefab1.instantiate()
+			get_parent().ammo2 = ammo2 - 1
+		else:
+			return
 	bullet.position = global_position
 	bullet.direction = direction 
 	get_tree().root.add_child(bullet)

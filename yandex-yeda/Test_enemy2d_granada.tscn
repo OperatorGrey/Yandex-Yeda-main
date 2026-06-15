@@ -30,7 +30,6 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fyrc7")
 
 [node name="attack_timer" type="Timer" parent="." unique_id=304838636]
-autostart = true
 
 [node name="stun_timer" type="Timer" parent="." unique_id=1263631368]
 
