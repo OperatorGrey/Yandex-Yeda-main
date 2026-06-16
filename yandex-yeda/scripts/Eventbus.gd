@@ -11,3 +11,5 @@ signal grenade_explosion
 signal ammo_type_changed
 
 signal ammo_picked_up
+
+signal checkpoint_reached

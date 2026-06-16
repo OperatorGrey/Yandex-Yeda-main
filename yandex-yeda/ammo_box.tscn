@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnxf0s51lc6xm"]
 
-[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="1_nwo05"]
 [ext_resource type="Script" uid="uid://cmhqfegi6y4pu" path="res://ammo_box.gd" id="1_xmxkj"]
+[ext_resource type="Texture2D" uid="uid://de8xrwwcb88cw" path="res://download.jpg" id="2_xmxkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmxkj"]
 size = Vector2(83, 86)
@@ -10,9 +10,9 @@ size = Vector2(83, 86)
 script = ExtResource("1_xmxkj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=852049058]
-position = Vector2(0.9999962, 0)
-scale = Vector2(0.640625, 0.671875)
-texture = ExtResource("1_nwo05")
+position = Vector2(3.33786e-06, -0.4999981)
+scale = Vector2(0.36444443, 0.36888888)
+texture = ExtResource("2_xmxkj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826759440]
 position = Vector2(0.5, 0)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bv351rp0br6r1"]
 
 [ext_resource type="Script" uid="uid://b7wphscv5yum1" path="res://scripts/bullet.gd" id="1_7f4k7"]
-[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="2_f7cwy"]
+[ext_resource type="Texture2D" uid="uid://rylu4vrh85ek" path="res://filipino-street-food-at-a-hotel-buffet-restaurant-in-cebu-philippines-2JCERGN.jpg" id="2_7f4k7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
 size = Vector2(88, 88)
@@ -10,9 +10,9 @@ size = Vector2(88, 88)
 script = ExtResource("1_7f4k7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1523461431]
-position = Vector2(7.5, 11.500004)
-scale = Vector2(0.6328125, 0.6484375)
-texture = ExtResource("2_f7cwy")
+position = Vector2(6.5, 11.5)
+scale = Vector2(0.06692307, 0.08891213)
+texture = ExtResource("2_7f4k7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2110103700]
 position = Vector2(7, 11)

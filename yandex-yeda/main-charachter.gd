@@ -67,6 +67,7 @@ func _on_hit(new_hp) -> void:
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
 	if  area.name == 'checkpoint':
 		start_pos = area.position
+		Eventbus.checkpoint_reached.emit()
 		
 	elif 'acid_puddle' in area.name:
 		respawn()

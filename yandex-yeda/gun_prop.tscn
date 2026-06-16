@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxbjct8fxn0yk"]
 
-[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="1_8m3au"]
 [ext_resource type="Script" uid="uid://cn6t8l7jsp7sy" path="res://scripts/gun_prop.gd" id="1_jwhxb"]
+[ext_resource type="Texture2D" uid="uid://byt4jyi55lb8a" path="res://weapon prototype 1.png" id="2_jwhxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwhxb"]
 size = Vector2(104.5, 103.5)
@@ -10,9 +10,9 @@ size = Vector2(104.5, 103.5)
 script = ExtResource("1_jwhxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487046206]
-position = Vector2(-1, 2)
-scale = Vector2(0.7265625, 0.765625)
-texture = ExtResource("1_8m3au")
+position = Vector2(-2.000002, 0.5000019)
+scale = Vector2(0.40625, 0.40234378)
+texture = ExtResource("2_jwhxb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1393019885]
 position = Vector2(-1, 1)
