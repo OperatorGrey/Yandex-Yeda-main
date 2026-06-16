@@ -15,6 +15,7 @@ var ammo1
 var ammo2
 
 
+
 func _ready() -> void:
 	Eventbus.gun_picked_up.connect(on_pick_up)
 

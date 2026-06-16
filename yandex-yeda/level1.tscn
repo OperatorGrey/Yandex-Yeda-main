@@ -128,12 +128,9 @@ position = Vector2(2902, 1490)
 
 [node name="ammo1_box2" parent="." unique_id=325044777 instance=ExtResource("9_usj0q")]
 position = Vector2(5463, 1102)
-script = null
 
 [node name="ammo1_box3" parent="." unique_id=1295902746 instance=ExtResource("9_usj0q")]
 position = Vector2(7548, 593)
-script = null
 
 [node name="ammo1_box4" parent="." unique_id=578186028 instance=ExtResource("9_usj0q")]
 position = Vector2(8668, 973)
-script = null

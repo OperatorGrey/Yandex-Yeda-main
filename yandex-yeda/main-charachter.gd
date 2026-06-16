@@ -77,10 +77,13 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 	elif area.name == 'jumpboots_prop':
 		double_jump = true
 	elif 'ammo1' in area.name:
+		var ammo_type_event = 1
 		ammo1 = ammo1 + 10;
+		Eventbus.ammo_picked_up.emit(ammo_type_event)
 	elif 'ammo2' in area.name:
+		var ammo_type_event = 2
 		ammo2 = ammo2 + 10
-
+		Eventbus.ammo_picked_up.emit(ammo_type_event)
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'enemy_hitbox':
