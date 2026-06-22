@@ -3,12 +3,17 @@ extends CharacterBody2D
 
 var hitpoints = 5
 
+var stunned = false
+var walking = true
+var attacking = false
+
 func _attack():
 	$'attack_timer'.start()
 	get_parent().is_attacking=true
 func _stun():
 	$'stun_timer'.start()
 	get_parent().is_stunned=true
+	stunned = true
 
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
@@ -33,3 +38,8 @@ func _on_timer_timeout() -> void:
 
 func _on_stun_timer_timeout() -> void:
 	get_parent().is_stunned=false
+	stunned = false
+
+func _process(delta: float) -> void:
+	if walking == true:
+		$Sprite2D/AnimationPlayer.play("walking")

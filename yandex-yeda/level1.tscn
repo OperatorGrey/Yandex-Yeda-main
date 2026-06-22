@@ -79,7 +79,7 @@ scale = Vector2(2.759795, 1)
 position = Vector2(2706, 1475)
 
 [node name="Path2D" parent="." unique_id=212816321 instance=ExtResource("5_v8kj3")]
-position = Vector2(2447, 1010)
+position = Vector2(2431, 1029)
 curve = SubResource("Curve2D_usj0q")
 
 [node name="checkpoint" parent="." unique_id=2080467967 instance=ExtResource("3_crycw")]
@@ -100,7 +100,7 @@ position = Vector2(5871, 898)
 position = Vector2(8051, 901)
 
 [node name="Path2D2" parent="." unique_id=2075143229 instance=ExtResource("5_v8kj3")]
-position = Vector2(5213, 625)
+position = Vector2(5213, 645)
 curve = SubResource("Curve2D_5j5gb")
 
 [node name="Path2D3" parent="." unique_id=436108445 instance=ExtResource("8_xy4tn")]
@@ -108,11 +108,11 @@ position = Vector2(5962, 388)
 curve = SubResource("Curve2D_mx85b")
 
 [node name="Path2D4" parent="." unique_id=599699443 instance=ExtResource("8_xy4tn")]
-position = Vector2(7407, 630)
+position = Vector2(7409, 646)
 curve = SubResource("Curve2D_hx44q")
 
 [node name="Path2D5" parent="." unique_id=1592040368 instance=ExtResource("8_xy4tn")]
-position = Vector2(8078, 626)
+position = Vector2(8076, 647)
 curve = SubResource("Curve2D_n8vhr")
 
 [node name="level1_exit" type="Area2D" parent="." unique_id=1210920686]

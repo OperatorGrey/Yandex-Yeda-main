@@ -1,7 +1,66 @@
 [gd_scene format=3 uid="uid://4l4jqdxyk6v7"]
 
 [ext_resource type="Script" uid="uid://cu1lrxgoydvaw" path="res://scripts/test_enemy_2d.gd" id="1_ls8fw"]
-[ext_resource type="Texture2D" uid="uid://hebqlh5xixkx" path="res://images (1).jpg" id="2_ls8fw"]
+[ext_resource type="Texture2D" uid="uid://o4vekgpm63qj" path="res://miner_sprite.png" id="2_ls8fw"]
+
+[sub_resource type="Animation" id="Animation_fyrc7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hetj8"]
+resource_name = "stunned"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.2617993877991494, 0.2617993877991494, -0.2617993877991494]
+}
+
+[sub_resource type="Animation" id="Animation_ls8fw"]
+resource_name = "walking"
+length = 1.5
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker",
+"time": 1.0
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.5235987755982988, 0.5235987755982988, 0.0, -0.5235987755982988, 0.5235987755982988, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fyrc7"]
+_data = {
+&"RESET": SubResource("Animation_fyrc7"),
+&"stunned": SubResource("Animation_hetj8"),
+&"walking": SubResource("Animation_ls8fw")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8fw"]
 size = Vector2(127, 127)
@@ -13,10 +72,13 @@ size = Vector2(164, 151)
 script = ExtResource("1_ls8fw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1516714779]
-position = Vector2(9.536743e-07, 0.5)
-scale = Vector2(0.71999997, 0.44097224)
+position = Vector2(4.999999, -11)
+scale = Vector2(0.640625, 0.58984375)
 texture = ExtResource("2_ls8fw")
 flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=7673672]
+libraries/ = SubResource("AnimationLibrary_fyrc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004589446]
 position = Vector2(-0.5, 0.5)
@@ -25,7 +87,7 @@ shape = SubResource("RectangleShape2D_ls8fw")
 [node name="enemy_hitbox" type="Area2D" parent="." unique_id=1871773331]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox" unique_id=1659202750]
-position = Vector2(0, 0.5)
+position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_fyrc7")
 
 [node name="attack_timer" type="Timer" parent="." unique_id=304838636]
