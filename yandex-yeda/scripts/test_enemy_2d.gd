@@ -10,10 +10,13 @@ var attacking = false
 func _attack():
 	$'attack_timer'.start()
 	get_parent().is_attacking=true
+	attacking = true
+	walking = false
 func _stun():
 	$'stun_timer'.start()
 	get_parent().is_stunned=true
 	stunned = true
+	walking = false
 
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
@@ -22,8 +25,10 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	elif area.name == "bullet1":
 		hitpoints = hitpoints - 2
 		_stun()
+		stunned = true
 	if area.name == "player_hitbox":
 		_attack()
+		attacking = true
 	if hitpoints <= 0:
 		queue_free()
 
@@ -33,8 +38,11 @@ func _on_timer_timeout() -> void:
 		for area in $enemy_hitbox.get_overlapping_areas():
 			if area.name == 'player_hibox':
 				_attack()
+				attacking = true
 	else:
 		get_parent().is_attacking=false
+		attacking = false
+		walking = true
 
 func _on_stun_timer_timeout() -> void:
 	get_parent().is_stunned=false
@@ -43,3 +51,10 @@ func _on_stun_timer_timeout() -> void:
 func _process(delta: float) -> void:
 	if walking == true:
 		$Sprite2D/AnimationPlayer.play("walking")
+	elif attacking == true:
+		$Sprite2D/AnimationPlayer.play("hitting the player")
+	elif stunned == true:
+		$Sprite2D/AnimationPlayer.play("stunned")
+
+
+#Take a look at the Enums, will fix a lot of problems with animations

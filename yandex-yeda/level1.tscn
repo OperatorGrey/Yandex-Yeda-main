@@ -60,6 +60,7 @@ point_count = 3
 size = Vector2(235, 317)
 
 [node name="Node2D" type="Node2D" unique_id=58989182]
+position = Vector2(391, 155)
 metadata/_edit_horizontal_guides_ = [449.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=486828460]
@@ -67,7 +68,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAkAAAAAAAA
 tile_set = SubResource("TileSet_v8kj3")
 
 [node name="player" parent="." unique_id=1417989640 instance=ExtResource("2_ootpb")]
-position = Vector2(143, 446)
+position = Vector2(2015, 812)
 
 [node name="User Interface" parent="." unique_id=1309881729 instance=ExtResource("3_xy4tn")]
 
