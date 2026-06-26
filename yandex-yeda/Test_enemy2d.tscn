@@ -42,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.6, 0.6666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(4.999999, -11), Vector2(-30, -41), Vector2(-30, -41), Vector2(-30, -11), Vector2(5, -11)]
+"values": [Vector2(4.999999, -11), Vector2(5, -41), Vector2(5, -41), Vector2(5, -11), Vector2(5, -11)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,7 +54,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.6, 0.6666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.6283185307179586, -0.62831855, 0.0]
+"values": [0.0, 0.0, 1.213003830136059, 1.213003830136059, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_hetj8"]
