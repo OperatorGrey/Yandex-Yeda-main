@@ -15,7 +15,7 @@ curve = SubResource("Curve2D_ootpb")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=498769915]
 position = Vector2(853, 442)
-rotation = -0.0067414707
+rotation = -0.05055213
 rotates = false
 script = ExtResource("1_qwmsl")
 

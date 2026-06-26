@@ -115,7 +115,6 @@ script = ExtResource("1_ls8fw")
 position = Vector2(4.999999, -11)
 scale = Vector2(0.640625, 0.58984375)
 texture = ExtResource("2_ls8fw")
-flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=7673672]
 libraries/ = SubResource("AnimationLibrary_fyrc7")
