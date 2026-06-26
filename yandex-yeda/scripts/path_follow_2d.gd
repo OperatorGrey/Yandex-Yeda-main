@@ -56,11 +56,15 @@ extends PathFollow2D
 var speed = 0.5
 var is_attacking = false
 var is_stunned = false
+var dead = false
 
 func _ready():
 	rotates = false # Отключаем переворот вверх ногами
 
 func _process(delta):
+	if dead == true:
+		set_process(false)
+		return
 	if not is_stunned and not is_attacking:
 		progress_ratio += delta * speed
 	
