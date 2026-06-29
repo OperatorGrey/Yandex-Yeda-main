@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 var hitpoints = 5
 
+var going_left = true
+
 var stunned = false
 var walking = true
 var attacking = false
@@ -50,6 +52,10 @@ func _on_stun_timer_timeout() -> void:
 	stunned = false
 
 func _process(delta: float) -> void:
+	if going_left == true:
+		scale.x = 1
+	else:
+		scale.x = -1
 	if walking == true:
 		$Sprite2D/AnimationPlayer.play("walking")
 	elif attacking == true:

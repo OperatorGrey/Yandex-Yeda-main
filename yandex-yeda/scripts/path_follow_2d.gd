@@ -70,6 +70,7 @@ func _process(delta):
 	
 	# ХОД ВПЕРЕД (speed > 0)
 	if speed > 0:
+		get_child(0).going_left = true
 		# На первой половине пути (от 0.0 до 0.5) смотрит вправо
 		if progress_ratio < 0.5:
 			sprite.flip_h = false
@@ -82,6 +83,7 @@ func _process(delta):
 			
 	# ХОД НАЗАД (speed < 0)
 	elif speed < 0:
+		get_child(0)
 		# На обратном пути от конца до середины смотрит влево
 		if progress_ratio > 0.5:
 			sprite.flip_h = true
