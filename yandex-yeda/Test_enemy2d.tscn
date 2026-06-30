@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu1lrxgoydvaw" path="res://scripts/test_enemy_2d.gd" id="1_ls8fw"]
 [ext_resource type="Texture2D" uid="uid://dt84g5rec27to" path="res://miner_sprite1.png" id="2_ls8fw"]
+[ext_resource type="Texture2D" uid="uid://jqctogb0kwtd" path="res://particle2d (1).png" id="3_fyrc7"]
 
 [sub_resource type="Animation" id="Animation_fyrc7"]
 length = 0.001
@@ -29,6 +30,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(4.999999, -11)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8txe0"]
 resource_name = "hitting the player"
@@ -46,15 +59,15 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath(".:rotation")
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6, 0.6666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 1.5707963267948966, 1.5707963267948966, 0.0]
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hetj8"]
@@ -104,7 +117,7 @@ _data = {
 
 [sub_resource type="Curve" id="Curve_fyrc7"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
-_data = [Vector2(0.009900995, -1), 0.0, 0.0, 0, 0, Vector2(0.49504948, 1), 0.0, 0.0, 0, 0, Vector2(0.99999994, -1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.009900995, -1), 0.0, 0.0, 0, 0, Vector2(0.5053192, 1), 0.0, 0.0, 0, 0, Vector2(0.99999994, -1), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8fw"]
@@ -125,12 +138,18 @@ region_rect = Rect2(0, 0, 256, 256)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=7673672]
 libraries/ = SubResource("AnimationLibrary_fyrc7")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D/AnimationPlayer" unique_id=1964024548]
-position = Vector2(47, 63)
-amount = 100
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D" unique_id=1964024548]
+position = Vector2(63.264374, 118.518524)
+scale = Vector2(1.4712645, 1.5802469)
+emitting = false
+amount = 20
+texture = ExtResource("3_fyrc7")
+one_shot = true
+local_coords = true
 emission_shape = 1
 emission_sphere_radius = 5.06
-spread = 0.0
+direction = Vector2(0, -1)
+spread = 50.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 200.0
 initial_velocity_max = 200.0
@@ -139,6 +158,8 @@ angular_velocity_max = 720.0
 linear_accel_min = 200.0
 linear_accel_max = 200.0
 linear_accel_curve = SubResource("Curve_fyrc7")
+angle_min = 180.0
+angle_max = 180.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004589446]
 position = Vector2(-0.5, 0.5)
