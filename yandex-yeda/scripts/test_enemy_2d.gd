@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var particles = $Sprite2D/CPUParticles2D
+@onready var sprite = $Sprite2D
 
 var hitpoints = 5
 
@@ -52,10 +54,13 @@ func _on_stun_timer_timeout() -> void:
 	stunned = false
 
 func _process(delta: float) -> void:
+#Take a look at the Enums, will fix a lot of problems with animations
 	if going_left == true:
 		scale.x = 1
-	else:
+		particles.position.x = 63.2643737792969
+	elif going_left == false:
 		scale.x = -1
+		particles.position.x = -63.2643737792969
 	if walking == true:
 		$Sprite2D/AnimationPlayer.play("walking")
 	elif attacking == true:
@@ -65,3 +70,9 @@ func _process(delta: float) -> void:
 
 
 #Take a look at the Enums, will fix a lot of problems with animations
+#	if going_left == true:
+#		scale.x = 1
+#		particles.position.x = 63.2643737792969
+#	elif going_left == false:
+#		scale.x = -1
+#		particles.position.x = -63.2643737792969
