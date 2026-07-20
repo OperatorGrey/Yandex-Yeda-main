@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var start_pos = Vector2 (142.0, 448.0)
 var SPEED = 0.0
-const JUMP_VELOCITY = -400.0
+var JUMP_VELOCITY = -400.0
 var hp = 3
 var double_jump = false
 var jump_counter = 0
@@ -38,10 +38,10 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right")
 		#flip_h on left
 	if Input.is_action_pressed("ui_left"):
-		SPEED = 300
+		SPEED = 400
 		velocity.x = direction * SPEED
 	elif Input.is_action_pressed("ui_right"):
-		SPEED = 300
+		SPEED = 400
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -85,6 +85,10 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		var ammo_type_event = 2
 		ammo2 = ammo2 + 10
 		Eventbus.ammo_picked_up.emit(ammo_type_event)
+	elif 'jump_inc' in area.name:
+		JUMP_VELOCITY -= 400
+	elif 'jump_dec' in area.name:
+		JUMP_VELOCITY += 400
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'enemy_hitbox':
