@@ -86,9 +86,9 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		ammo2 = ammo2 + 10
 		Eventbus.ammo_picked_up.emit(ammo_type_event)
 	elif 'jump_inc' in area.name:
-		JUMP_VELOCITY -= 400
+		JUMP_VELOCITY = -800
 	elif 'jump_dec' in area.name:
-		JUMP_VELOCITY += 400
+		JUMP_VELOCITY = -400
 func _hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'enemy_hitbox':
