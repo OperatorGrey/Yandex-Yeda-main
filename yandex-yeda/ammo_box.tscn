@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnxf0s51lc6xm"]
 
 [ext_resource type="Script" uid="uid://cmhqfegi6y4pu" path="res://ammo_box.gd" id="1_xmxkj"]
-[ext_resource type="Texture2D" uid="uid://de8xrwwcb88cw" path="res://download.jpg" id="2_xmxkj"]
+[ext_resource type="Texture2D" uid="uid://clkp5xtvnmwkj" path="res://pizza_box.png" id="2_xmxkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmxkj"]
 size = Vector2(83, 86)
@@ -10,8 +10,8 @@ size = Vector2(83, 86)
 script = ExtResource("1_xmxkj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=852049058]
-position = Vector2(3.33786e-06, -0.4999981)
-scale = Vector2(0.36444443, 0.36888888)
+position = Vector2(1.9073486e-06, -0.49999905)
+scale = Vector2(1.28125, 1.3593749)
 texture = ExtResource("2_xmxkj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826759440]

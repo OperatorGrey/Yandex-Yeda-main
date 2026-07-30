@@ -1,12 +1,17 @@
 extends CharacterBody2D
 
 var grenade_prefab = preload("res://grenade.tscn")
+@onready var sprite = $Sprite2D
 
 var hitpoints = 5
 
 var num_grenades = 1
 
-var is_attacking = false
+var going_left = true
+
+var attacking = false
+var walking = true
+var stunned = false
 
 var attack_left = true
 
@@ -15,10 +20,15 @@ var grenade_serial_number
 func _attack():
 	if $'attack_timer'.is_stopped():
 		$'attack_timer'.start()
+	get_parent().is_attacking=true
+	attacking = true
+	walking = false
 	
 func _stun():
 	$'stun_timer'.start()
 	get_parent().is_stunned=true
+	stunned = true
+	walking = false
 
 
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
@@ -30,6 +40,7 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 		_stun()
 		print('hit')
 	if hitpoints <= 0:
+		get_parent().dead = true
 		queue_free()
 
 
@@ -40,22 +51,22 @@ func _on_stun_timer_timeout() -> void:
 func _on_left_vision_area_entered(area: Area2D) -> void:
 	if area.name == "player_hitbox":
 		attack_left = true
-		is_attacking = true
+		attacking = true
 
 func _on_right_vision_area_entered(area: Area2D) -> void:
 	if area.name == "player_hitbox":
 		attack_left = false
-		is_attacking = true
+		attacking = true
 
 func _on_left_vision_area_exited(area: Area2D) -> void:
 	if area.name == "player_hitbox":
 		attack_left = true
-		is_attacking = false
+		attacking = false
 
 func _on_right_vision_area_exited(area: Area2D) -> void:
 	if area.name == "player_hitbox":
 		attack_left = false
-		is_attacking = false
+		attacking = false
 
 func spawn_bullet():
 		# Spawn a bullet
@@ -81,8 +92,16 @@ func _on_timer_timeout() -> void:
 
 
 func _process(delta: float) -> void:
-	if is_attacking == true:
+	if attacking == true:
 		get_parent().is_attacking = true
 		_attack()
 	else:
 		get_parent().is_attacking = false
+	if walking == true:
+		$Sprite2D/AnimationPlayer.play("walking")
+	elif stunned == true:
+		$Sprite2D/AnimationPlayer.play("stunned")
+	elif attacking == true:
+		$Sprite2D/AnimationPlayer.stop()
+	elif attacking == false and stunned == false:
+		walking = true

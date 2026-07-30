@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://2xmdiiwhd0g6" path="res://scripts/gun_iniciator.gd" id="5_r6vdu"]
 [ext_resource type="PackedScene" uid="uid://dadxsx4xf01p4" path="res://jumpboots_prop.tscn" id="6_21xmu"]
 [ext_resource type="PackedScene" uid="uid://dp8y2r3in6txk" path="res://acid_puddle.tscn" id="7_8i3m3"]
+[ext_resource type="PackedScene" uid="uid://dnxf0s51lc6xm" path="res://ammo_box.tscn" id="8_rmy57"]
+[ext_resource type="PackedScene" uid="uid://butmg5elm05eu" path="res://checkpoint.tscn" id="9_qulpo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tcn8"]
 texture = ExtResource("1_r40rm")
@@ -22,19 +24,19 @@ sources/0 = SubResource("TileSetAtlasSource_8tcn8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i3m3"]
 size = Vector2(213.5, 155.5)
 
-[sub_resource type="Curve2D" id="Curve2D_8i3m3"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 164, -2, 0, 0, 0, 0, -332, -1)
-}
-point_count = 4
-
 [sub_resource type="Curve2D" id="Curve2D_rmy57"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -571, 0, 0, 0, 0, 0, -1, -4, 0, 0, 0, 0, 348, 3, 0, 0, 0, 0, -709, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -332, -2, 0, 0, 0, 0, -1, -2, 0, 0, 0, 0, 60, -2, 0, 0, 0, 0, -332, -2)
 }
 point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_qulpo"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 348, 0, 0, 0, 0, 0, 1, 0)
+}
+point_count = 3
 
 [node name="Node2D" type="Node2D" unique_id=595747922]
 
@@ -57,7 +59,7 @@ shape = SubResource("RectangleShape2D_8i3m3")
 
 [node name="Path2D" parent="." unique_id=1916726924 instance=ExtResource("5_21xmu")]
 position = Vector2(3487, 742)
-curve = SubResource("Curve2D_8i3m3")
+curve = SubResource("Curve2D_rmy57")
 
 [node name="jumpboots_prop" parent="." unique_id=1069240781 instance=ExtResource("6_21xmu")]
 position = Vector2(2031, 645)
@@ -65,10 +67,19 @@ scale = Vector2(0.6800049, 0.6399994)
 
 [node name="Path2D2" parent="." unique_id=871406289 instance=ExtResource("5_21xmu")]
 position = Vector2(3826, 1383)
-curve = SubResource("Curve2D_rmy57")
+curve = SubResource("Curve2D_qulpo")
 
 [node name="acid_puddle" parent="." unique_id=562781060 instance=ExtResource("7_8i3m3")]
-position = Vector2(2026, 1556)
+position = Vector2(1694, 1561.0001)
 scale = Vector2(3.9358137, 0.6537616)
+
+[node name="ammo1_box" parent="." unique_id=301643465 instance=ExtResource("8_rmy57")]
+position = Vector2(1620, 650)
+
+[node name="ammo1_box2" parent="." unique_id=816437090 instance=ExtResource("8_rmy57")]
+position = Vector2(1774, 641)
+
+[node name="checkpoint" parent="." unique_id=2080467967 instance=ExtResource("9_qulpo")]
+position = Vector2(2540, 291)
 
 [connection signal="area_entered" from="gun_iniciator" to="gun_iniciator" method="_on_area_entered"]
