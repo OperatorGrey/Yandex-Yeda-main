@@ -48,7 +48,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 func respawn(): 
 	velocity.x = 0
-	
+	ammo1 = 5
+	ammo2 = 1
 	position = start_pos
 
 
@@ -98,7 +99,7 @@ func _grenade_hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'grenade_hitbox':
 			Eventbus.player_hit.emit(hp)
-
+ 
 
 func _on_gun_iniciator_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.

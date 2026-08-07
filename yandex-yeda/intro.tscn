@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ik0f5fssqq5a"]
+
+[ext_resource type="Script" uid="uid://b7mijlgcehbdm" path="res://scripts/button3.gd" id="1_s2ta7"]
+
+[node name="Control" type="Control" unique_id=1949115812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1970877458]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -329.0
+offset_top = 45.0
+offset_right = 347.0
+offset_bottom = 114.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "How to not get surrounded?"
+
+[node name="Label2" type="Label" parent="." unique_id=523089412]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.0
+offset_top = -187.0
+offset_right = 528.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Walking right/left: Left arrow/Right arrow
+Jumping: Space
+Shoot: X
+Swap ammo type: C
+
+Welcome to the secreet deep state moonbase.
+ UN, WEF, NZ government, everyone are here. You are an ISS astronaut
+who left the station but crashlanded on moon due to the navigator error.
+Your only way out-is get to the shuttle parked next to the local mall. Will
+you have enough might for that? Prove it."
+
+[node name="Button" type="Button" parent="." unique_id=271700370]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -59.0
+offset_right = 54.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+script = ExtResource("1_s2ta7")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
