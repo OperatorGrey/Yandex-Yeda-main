@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ik0f5fssqq5a"]
 
-[ext_resource type="Script" uid="uid://b7mijlgcehbdm" path="res://scripts/button3.gd" id="1_s2ta7"]
+[ext_resource type="Script" uid="uid://cjq1tx5056ks8" path="res://scripts/button4.gd" id="1_s2ta7"]
 
 [node name="Control" type="Control" unique_id=1949115812]
 layout_mode = 3
@@ -42,11 +42,12 @@ Jumping: Space
 Shoot: X
 Swap ammo type: C
 
-Welcome to the secreet deep state moonbase.
+Welcome to the secret deep state moonbase.
  UN, WEF, NZ government, everyone are here. You are an ISS astronaut
 who left the station but crashlanded on moon due to the navigator error.
 Your only way out-is get to the shuttle parked next to the local mall. Will
-you have enough might for that? Prove it."
+you have enough might for that? Prove it.
+P.S.: Spraying is a falure strategy!"
 
 [node name="Button" type="Button" parent="." unique_id=271700370]
 layout_mode = 1
@@ -55,13 +56,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -102.0
-offset_top = -59.0
-offset_right = 54.0
-offset_bottom = -28.0
+offset_left = -96.0
+offset_top = -40.0
+offset_right = 60.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Start"
+text = "Back"
 script = ExtResource("1_s2ta7")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

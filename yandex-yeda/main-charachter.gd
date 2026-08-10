@@ -40,9 +40,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_left"):
 		SPEED = 400
 		velocity.x = direction * SPEED
+		$Sprite2D.flip_h = true
 	elif Input.is_action_pressed("ui_right"):
 		SPEED = 400
 		velocity.x = direction * SPEED
+		$Sprite2D.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
@@ -74,6 +76,7 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		respawn()
 	elif area.name == 'gun_prop':
 		Eventbus.gun_picked_up.emit()
+		$Sprite2D.texture = load('res://main_charachter_with_gun.png')
 	elif area.name == 'level1_exit':
 		get_tree().change_scene_to_file("res://level1_passed.tscn")
 	elif area.name == 'jumpboots_prop':

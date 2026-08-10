@@ -54,7 +54,12 @@ func spawn_bullet(direction : Vector2):
 			get_parent().ammo2 = ammo2 - 1
 		else:
 			return
-	bullet.position = global_position
+	if direction == Vector2.LEFT:
+		bullet.position = global_position - Vector2(100,0)
+		print('left')
+	else:
+		bullet.position = global_position + Vector2(100,0)
+		print('right')
 	bullet.direction = direction 
 	get_tree().root.add_child(bullet)
 
