@@ -203,7 +203,8 @@ scale = Vector2(3.5910523, 1)
 position = Vector2(5871, 898)
 
 [node name="checkpoint3" parent="." unique_id=715219663 instance=ExtResource("3_crycw")]
-position = Vector2(8051, 901)
+position = Vector2(8043, 445)
+scale = Vector2(1, 2.9200013)
 
 [node name="Path2D2" parent="." unique_id=2075143229 instance=ExtResource("5_v8kj3")]
 position = Vector2(5213, 645)

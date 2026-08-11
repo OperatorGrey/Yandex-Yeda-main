@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7wjfnwk1uh7x" path="res://scripts/health.gd" id="1_kxhmu"]
 [ext_resource type="Script" uid="uid://dnycu87jbh2xn" path="res://label.gd" id="2_i7dvk"]
+[ext_resource type="Script" uid="uid://chh6asj7vh6bm" path="res://ammo_count.gd" id="3_0jl8t"]
 [ext_resource type="Script" uid="uid://buurde11ssbaa" path="res://picked_up.gd" id="3_juc2q"]
 
 [node name="User Interface" type="CanvasLayer" unique_id=1309881729]
@@ -34,13 +35,22 @@ theme_override_font_sizes/font_size = 50
 text = "Ammo type: pizza bits"
 script = ExtResource("2_i7dvk")
 
-[node name="Picked_up" type="Label" parent="UI" unique_id=1643738922]
-visible = false
+[node name="Ammo_count" type="Label" parent="UI" unique_id=2089283250]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 162.0
-offset_right = 529.0
-offset_bottom = 219.0
+offset_left = 2.0
+offset_top = 155.0
+offset_right = 533.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 50
+text = "Ammo:"
+script = ExtResource("3_0jl8t")
+
+[node name="Picked_up" type="Label" parent="UI" unique_id=1643738922]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 2.0
+offset_right = 1474.0
+offset_bottom = 59.0
 text = "Pizza bits picked up (+10)"
 script = ExtResource("3_juc2q")
 

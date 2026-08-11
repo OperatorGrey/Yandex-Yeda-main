@@ -41,19 +41,22 @@ func _physics_process(delta: float) -> void:
 		SPEED = 400
 		velocity.x = direction * SPEED
 		$Sprite2D.flip_h = true
+		$Sprite2D/AnimationPlayer.play('walking')
 	elif Input.is_action_pressed("ui_right"):
 		SPEED = 400
 		velocity.x = direction * SPEED
 		$Sprite2D.flip_h = false
+		$Sprite2D/AnimationPlayer.play('walking')
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$Sprite2D/AnimationPlayer.stop()
 	move_and_slide()
 func respawn(): 
 	velocity.x = 0
 	ammo1 = 5
 	ammo2 = 1
 	position = start_pos
-
+	Eventbus.shots_fired.emit(ammo1, ammo2)
 
 
 
@@ -85,10 +88,12 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 		var ammo_type_event = 1
 		ammo1 = ammo1 + 10;
 		Eventbus.ammo_picked_up.emit(ammo_type_event)
+		Eventbus.shots_fired.emit(ammo1, ammo2)
 	elif 'ammo2' in area.name:
 		var ammo_type_event = 2
 		ammo2 = ammo2 + 10
 		Eventbus.ammo_picked_up.emit(ammo_type_event)
+		Eventbus.shots_fired.emit(ammo1, ammo2)
 	elif 'jump_inc' in area.name:
 		JUMP_VELOCITY = -800
 	elif 'jump_dec' in area.name:

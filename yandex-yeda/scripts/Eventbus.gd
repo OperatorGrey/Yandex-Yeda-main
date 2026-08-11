@@ -13,3 +13,7 @@ signal ammo_type_changed
 signal ammo_picked_up
 
 signal checkpoint_reached
+
+signal shots_fired(ammo1 : int, ammo2 : int)
+
+signal shots_fired_tech

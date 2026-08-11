@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dset1emai1wl5"]
 
 [ext_resource type="Script" uid="uid://b7wphscv5yum1" path="res://scripts/bullet.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://y2d4cgmsvji0" path="res://istockphoto-496546118-612x612.jpg" id="2_v8qja"]
+[ext_resource type="Texture2D" uid="uid://cxbv0a07diha5" path="res://pizza_bitts1.png" id="2_v8qja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
 size = Vector2(64, 58)
@@ -10,8 +10,8 @@ size = Vector2(64, 58)
 script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1523461431]
-position = Vector2(-1.4999962, -0.49999946)
-scale = Vector2(0.10294117, 0.12808989)
+position = Vector2(-1.0000019, 0)
+scale = Vector2(0.25, 0.22656249)
 texture = ExtResource("2_v8qja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2110103700]

@@ -23,6 +23,7 @@ func on_pick_up():
 	gun_picked_up = true
 
 func _process(delta: float) -> void:
+	Eventbus.shots_fired.emit(ammo1, ammo2)
 	ammo1 = get_parent().ammo1
 	ammo2 = get_parent().ammo2
 	if Input.is_action_just_pressed("shoot"):
@@ -54,6 +55,7 @@ func spawn_bullet(direction : Vector2):
 			get_parent().ammo2 = ammo2 - 1
 		else:
 			return
+			
 	if direction == Vector2.LEFT:
 		bullet.position = global_position - Vector2(100,0)
 		print('left')

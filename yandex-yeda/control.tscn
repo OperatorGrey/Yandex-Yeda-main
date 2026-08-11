@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bb6707x8yphj0"]
 
 [ext_resource type="Script" uid="uid://xj3vbvjyb05w" path="res://scripts/button1.gd" id="1_62e2m"]
+[ext_resource type="Script" uid="uid://bgy1k4jyknfl3" path="res://control.gd" id="1_ee4bf"]
 [ext_resource type="Script" uid="uid://b7mijlgcehbdm" path="res://scripts/button3.gd" id="1_qtu10"]
+[ext_resource type="AudioStream" uid="uid://dlks713wrox8l" path="res://4740127884181504.wav" id="3_qtu10"]
 
 [node name="Control" type="Control" unique_id=1949115812]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ee4bf")
 
 [node name="Label" type="Label" parent="." unique_id=1970877458]
 layout_mode = 1
@@ -55,5 +58,11 @@ grow_vertical = 2
 text = "Instructions"
 script = ExtResource("1_62e2m")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1087773336]
+stream = ExtResource("3_qtu10")
+volume_db = 10.0
+autoplay = true
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
