@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bmbo1h8n56kdm"]
+
+[ext_resource type="Script" uid="uid://dbdkg88b2koqc" path="res://ammo_2_box.gd" id="1_v0hr0"]
+[ext_resource type="Texture2D" uid="uid://8luvc5fl84uv" path="res://takoyaki_box.png" id="1_v4n67"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hr0"]
+size = Vector2(159, 103)
+
+[node name="Area2D" type="Area2D" unique_id=1793502846]
+script = ExtResource("1_v0hr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=4663937]
+position = Vector2(131, 131.00002)
+scale = Vector2(0.39999998, 0.2977748)
+texture = ExtResource("1_v4n67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=625613670]
+position = Vector2(133.5, 129.5)
+scale = Vector2(0.48000002, 0.56)
+shape = SubResource("RectangleShape2D_v0hr0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
