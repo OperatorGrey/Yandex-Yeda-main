@@ -58,35 +58,35 @@ sources/1 = SubResource("TileSetAtlasSource_3l65w")
 sources/2 = SubResource("TileSetAtlasSource_rjtee")
 sources/3 = SubResource("TileSetAtlasSource_1idop")
 
-[sub_resource type="Curve2D" id="Curve2D_43lh3"]
+[sub_resource type="Curve2D" id="Curve2D_nxqqj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1195, 443, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_5le63"]
+[sub_resource type="Curve2D" id="Curve2D_7nyxr"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1189, 442, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_pieet"]
+[sub_resource type="Curve2D" id="Curve2D_43lh3"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 840, 439, 0, 0, 0, 0, 994, 439, 0, 0, 0, 0, 840, 439)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_qiqrj"]
+[sub_resource type="Curve2D" id="Curve2D_5le63"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_xm42n"]
+[sub_resource type="Curve2D" id="Curve2D_pieet"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
@@ -159,7 +159,11 @@ position = Vector2(5998, 630)
 texture = ExtResource("2_c5gc3")
 
 [node name="FillIn3" type="Sprite2D" parent="." unique_id=1765515119]
-position = Vector2(7074, 607)
+position = Vector2(7068, 595)
+texture = ExtResource("2_c5gc3")
+
+[node name="FillIn3" type="Sprite2D" parent="FillIn3" unique_id=1634531789]
+position = Vector2(377, -506)
 texture = ExtResource("2_c5gc3")
 
 [node name="FillIn4" type="Sprite2D" parent="." unique_id=1179234027]
@@ -193,7 +197,7 @@ tile_map_data = PackedByteArray("AAAUAAYAAwAAAAAAAAAUAAUAAwAAAAAAAAAUAAQAAwAAAAA
 tile_set = SubResource("TileSet_v8kj3")
 
 [node name="player" parent="." unique_id=1417989640 instance=ExtResource("2_ootpb")]
-position = Vector2(192, 414)
+position = Vector2(2367, 890)
 
 [node name="User Interface" parent="." unique_id=1309881729 instance=ExtResource("3_xy4tn")]
 
@@ -206,7 +210,7 @@ position = Vector2(2706, 1475)
 
 [node name="Path2D" parent="." unique_id=212816321 instance=ExtResource("5_v8kj3")]
 position = Vector2(2431, 1029)
-curve = SubResource("Curve2D_43lh3")
+curve = SubResource("Curve2D_nxqqj")
 
 [node name="checkpoint" parent="." unique_id=2080467967 instance=ExtResource("3_crycw")]
 position = Vector2(2442, 1288)
@@ -228,19 +232,19 @@ scale = Vector2(1, 2.9200013)
 
 [node name="Path2D2" parent="." unique_id=2075143229 instance=ExtResource("5_v8kj3")]
 position = Vector2(5213, 645)
-curve = SubResource("Curve2D_5le63")
+curve = SubResource("Curve2D_7nyxr")
 
 [node name="Path2D3" parent="." unique_id=436108445 instance=ExtResource("8_xy4tn")]
 position = Vector2(5958, 381)
-curve = SubResource("Curve2D_pieet")
+curve = SubResource("Curve2D_43lh3")
 
 [node name="Path2D4" parent="." unique_id=599699443 instance=ExtResource("8_xy4tn")]
 position = Vector2(7409, 646)
-curve = SubResource("Curve2D_qiqrj")
+curve = SubResource("Curve2D_5le63")
 
 [node name="Path2D5" parent="." unique_id=1592040368 instance=ExtResource("8_xy4tn")]
 position = Vector2(8076, 647)
-curve = SubResource("Curve2D_xm42n")
+curve = SubResource("Curve2D_pieet")
 
 [node name="level1_exit" type="Area2D" parent="." unique_id=1210920686]
 position = Vector2(9440, 979)
@@ -267,7 +271,7 @@ position = Vector2(3778, 1167)
 script = ExtResource("11_n8vhr")
 
 [node name="jump_inc2" parent="." unique_id=263334528 instance=ExtResource("10_hx44q")]
-position = Vector2(6924, 666)
+position = Vector2(6919, 661)
 script = ExtResource("11_n8vhr")
 
 [node name="jump_dec" parent="." unique_id=720774438 instance=ExtResource("12_eqrsh")]

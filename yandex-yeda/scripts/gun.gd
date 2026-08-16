@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 
 func spawn_bullet(direction : Vector2):
 		# Spawn a bullet
+	$AudioStreamPlayer2D.play()
 	var bullet
 	if ammo_type == 1:
 		if ammo1 > 0:
