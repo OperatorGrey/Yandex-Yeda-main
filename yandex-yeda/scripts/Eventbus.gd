@@ -17,3 +17,5 @@ signal checkpoint_reached
 signal shots_fired(ammo1 : int, ammo2 : int)
 
 signal shots_fired_tech
+
+signal jumpboots_picked_up

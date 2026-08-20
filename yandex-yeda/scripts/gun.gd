@@ -42,18 +42,19 @@ func _process(delta: float) -> void:
 
 func spawn_bullet(direction : Vector2):
 		# Spawn a bullet
-	$AudioStreamPlayer2D.play()
 	var bullet
 	if ammo_type == 1:
 		if ammo1 > 0:
 			bullet = bullet_prefab.instantiate()
 			get_parent().ammo1 = ammo1 - 1
+			$AudioStreamPlayer2D.play()
 		else:
 			return
 	elif ammo_type == 2:
 		if ammo2 > 0:
 			bullet = bullet_prefab1.instantiate()
 			get_parent().ammo2 = ammo2 - 1
+			$AudioStreamPlayer2D.play()
 		else:
 			return
 			

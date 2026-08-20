@@ -25,6 +25,8 @@
 [ext_resource type="Script" uid="uid://cft20d0ytlweo" path="res://jump_dec.gd" id="13_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://dmwfjnv18rpd1" path="res://tablichka (1).png" id="21_c5gc3"]
 [ext_resource type="PackedScene" uid="uid://bmbo1h8n56kdm" path="res://ammo2_box.tscn" id="22_6e4cv"]
+[ext_resource type="PackedScene" uid="uid://dadxsx4xf01p4" path="res://jumpboots_prop.tscn" id="26_7nyxr"]
+[ext_resource type="PackedScene" uid="uid://bomwd58o066fs" path="res://scripted_grenade_enemy.tscn" id="27_43lh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v38iq"]
 texture = ExtResource("1_dopym")
@@ -58,35 +60,35 @@ sources/1 = SubResource("TileSetAtlasSource_3l65w")
 sources/2 = SubResource("TileSetAtlasSource_rjtee")
 sources/3 = SubResource("TileSetAtlasSource_1idop")
 
-[sub_resource type="Curve2D" id="Curve2D_nxqqj"]
+[sub_resource type="Curve2D" id="Curve2D_43lh3"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1195, 443, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_7nyxr"]
+[sub_resource type="Curve2D" id="Curve2D_5le63"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1189, 442, 0, 0, 0, 0, 853, 442)
+"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1015, 443, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_43lh3"]
+[sub_resource type="Curve2D" id="Curve2D_pieet"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 840, 439, 0, 0, 0, 0, 994, 439, 0, 0, 0, 0, 840, 439)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_5le63"]
+[sub_resource type="Curve2D" id="Curve2D_qiqrj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_pieet"]
+[sub_resource type="Curve2D" id="Curve2D_xm42n"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
@@ -95,6 +97,20 @@ point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8vhr"]
 size = Vector2(235, 317)
+
+[sub_resource type="Curve2D" id="Curve2D_6wmxb"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, 56, -1, 0, 0, 0, 0, -332, -1)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_8652m"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -278, 0, 0, 0, 0, 0, 164, 0, 0, 0, 0, 0, -278, 0, 0, 0, 0, 0, -278, 0)
+}
+point_count = 4
 
 [node name="Node2D" type="Node2D" unique_id=58989182]
 position = Vector2(391, 155)
@@ -159,15 +175,23 @@ position = Vector2(5998, 630)
 texture = ExtResource("2_c5gc3")
 
 [node name="FillIn3" type="Sprite2D" parent="." unique_id=1765515119]
-position = Vector2(7068, 595)
+position = Vector2(7055, 635)
 texture = ExtResource("2_c5gc3")
 
 [node name="FillIn3" type="Sprite2D" parent="FillIn3" unique_id=1634531789]
 position = Vector2(377, -506)
 texture = ExtResource("2_c5gc3")
 
+[node name="FillIn4" type="Sprite2D" parent="FillIn3" unique_id=1084574789]
+position = Vector2(1514, -654)
+texture = ExtResource("2_c5gc3")
+
+[node name="FillIn5" type="Sprite2D" parent="FillIn3" unique_id=1390878052]
+position = Vector2(-699, -553)
+texture = ExtResource("2_c5gc3")
+
 [node name="FillIn4" type="Sprite2D" parent="." unique_id=1179234027]
-position = Vector2(7658, 1196)
+position = Vector2(7576, 1207)
 texture = ExtResource("2_c5gc3")
 
 [node name="FillIn5" type="Sprite2D" parent="." unique_id=483263044]
@@ -197,7 +221,7 @@ tile_map_data = PackedByteArray("AAAUAAYAAwAAAAAAAAAUAAUAAwAAAAAAAAAUAAQAAwAAAAA
 tile_set = SubResource("TileSet_v8kj3")
 
 [node name="player" parent="." unique_id=1417989640 instance=ExtResource("2_ootpb")]
-position = Vector2(2367, 890)
+position = Vector2(1272, 1021)
 
 [node name="User Interface" parent="." unique_id=1309881729 instance=ExtResource("3_xy4tn")]
 
@@ -206,11 +230,11 @@ position = Vector2(1599, 1409)
 scale = Vector2(2.039795, 0.84000003)
 
 [node name="gun_prop" parent="." unique_id=1585203075 instance=ExtResource("4_v38iq")]
-position = Vector2(2706, 1475)
+position = Vector2(2730, 1486)
 
 [node name="Path2D" parent="." unique_id=212816321 instance=ExtResource("5_v8kj3")]
 position = Vector2(2431, 1029)
-curve = SubResource("Curve2D_nxqqj")
+curve = SubResource("Curve2D_43lh3")
 
 [node name="checkpoint" parent="." unique_id=2080467967 instance=ExtResource("3_crycw")]
 position = Vector2(2442, 1288)
@@ -231,20 +255,20 @@ position = Vector2(8043, 445)
 scale = Vector2(1, 2.9200013)
 
 [node name="Path2D2" parent="." unique_id=2075143229 instance=ExtResource("5_v8kj3")]
-position = Vector2(5213, 645)
-curve = SubResource("Curve2D_7nyxr")
+position = Vector2(5520, 622)
+curve = SubResource("Curve2D_5le63")
 
 [node name="Path2D3" parent="." unique_id=436108445 instance=ExtResource("8_xy4tn")]
 position = Vector2(5958, 381)
-curve = SubResource("Curve2D_43lh3")
+curve = SubResource("Curve2D_pieet")
 
 [node name="Path2D4" parent="." unique_id=599699443 instance=ExtResource("8_xy4tn")]
 position = Vector2(7409, 646)
-curve = SubResource("Curve2D_5le63")
+curve = SubResource("Curve2D_qiqrj")
 
 [node name="Path2D5" parent="." unique_id=1592040368 instance=ExtResource("8_xy4tn")]
 position = Vector2(8076, 647)
-curve = SubResource("Curve2D_pieet")
+curve = SubResource("Curve2D_xm42n")
 
 [node name="level1_exit" type="Area2D" parent="." unique_id=1210920686]
 position = Vector2(9440, 979)
@@ -264,7 +288,7 @@ position = Vector2(5463, 1102)
 position = Vector2(7548, 593)
 
 [node name="ammo1_box4" parent="." unique_id=578186028 instance=ExtResource("9_usj0q")]
-position = Vector2(8668, 973)
+position = Vector2(8663, 992)
 
 [node name="jump_inc" parent="." unique_id=444906147 instance=ExtResource("10_hx44q")]
 position = Vector2(3778, 1167)
@@ -340,7 +364,7 @@ position = Vector2(-253, 3)
 texture = ExtResource("1_ycv2e")
 
 [node name="VentSprite2" type="Sprite2D" parent="VentSprite/VentSprite2/VentSprite2/VentSprite2" unique_id=1165343599]
-position = Vector2(521, -190)
+position = Vector2(460, -181)
 texture = ExtResource("1_ycv2e")
 
 [node name="VentSprite" type="Sprite2D" parent="VentSprite/VentSprite2/VentSprite2/VentSprite2/VentSprite2" unique_id=1973064252]
@@ -352,5 +376,16 @@ position = Vector2(496, 14)
 texture = ExtResource("1_ycv2e")
 
 [node name="VentSprite" type="Sprite2D" parent="VentSprite/VentSprite2/VentSprite2/VentSprite2/VentSprite2/VentSprite2" unique_id=855820424]
-position = Vector2(-253, 3)
+position = Vector2(-253, -7)
 texture = ExtResource("1_ycv2e")
+
+[node name="jumpboots_prop" parent="." unique_id=1069240781 instance=ExtResource("26_7nyxr")]
+position = Vector2(2567, 1463)
+
+[node name="Path2D6" parent="." unique_id=1916726924 instance=ExtResource("27_43lh3")]
+position = Vector2(4844, 1088)
+curve = SubResource("Curve2D_6wmxb")
+
+[node name="Path2D7" parent="." unique_id=449443988 instance=ExtResource("27_43lh3")]
+position = Vector2(6071, 1087)
+curve = SubResource("Curve2D_8652m")

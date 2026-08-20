@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dadxsx4xf01p4"]
 
 [ext_resource type="Script" uid="uid://dlj3ns32ukpp6" path="res://double_jump_prop.gd" id="1_776yq"]
-[ext_resource type="Texture2D" uid="uid://dpi0ihaid2cp2" path="res://icon.svg" id="2_bf8sk"]
+[ext_resource type="Texture2D" uid="uid://6bfk5fxugd3l" path="res://jumpboots1.png" id="2_776yq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghdyl"]
 size = Vector2(155, 142)
@@ -10,7 +10,9 @@ size = Vector2(155, 142)
 script = ExtResource("1_776yq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1292632299]
-texture = ExtResource("2_bf8sk")
+position = Vector2(-1.3749962, -1)
+scale = Vector2(0.6044922, 0.55468756)
+texture = ExtResource("2_776yq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1482995374]
 position = Vector2(-1.5, -1)

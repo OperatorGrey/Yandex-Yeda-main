@@ -14,6 +14,7 @@ var attacking = false
 func _attack():
 	$'attack_timer'.start()
 	get_parent().is_attacking=true
+	$AudioStreamPlayer2D.play()
 	attacking = true
 	walking = false
 func _stun():
@@ -47,6 +48,8 @@ func _on_timer_timeout() -> void:
 			if area.name == 'player_hitbox':
 				_attack()
 				attacking = true
+			else:
+				$AudioStreamPlayer2D.stop()
 	else:
 		get_parent().is_attacking=false
 		attacking = false

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://d0d88ptvschj0"]
 
+[ext_resource type="Script" uid="uid://xmw3bqecc5oj" path="res://level_1_passed.gd" id="1_rnfy0"]
+[ext_resource type="AudioStream" uid="uid://dlks713wrox8l" path="res://4740127884181504.wav" id="2_n5l7w"]
+
 [node name="Control" type="Control" unique_id=1236021585]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rnfy0")
 
 [node name="Label" type="Label" parent="." unique_id=125400280]
 layout_mode = 1
@@ -23,3 +27,10 @@ You are victorious
 This is the end of the demo
 Leave some feedback please"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2139201086]
+stream = ExtResource("2_n5l7w")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

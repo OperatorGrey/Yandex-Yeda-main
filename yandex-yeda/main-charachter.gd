@@ -27,23 +27,27 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 				velocity.y = JUMP_VELOCITY
 				jump_counter = 1
+				$AudioStreamPlayer2D.stream = load("res://video-game-vintage-jump-ascend_zkbs6f4_.mp3")
+				$AudioStreamPlayer2D.play()
 		else:
 			if double_jump == true:
 				if jump_counter == 1:
 					velocity.y = JUMP_VELOCITY
 					jump_counter = 2
+					$AudioStreamPlayer2D.stream = load("res://video-game-vintage-jump-ascend_zkbs6f4_.mp3")
+					$AudioStreamPlayer2D.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 		#flip_h on left
 	if Input.is_action_pressed("ui_left"):
-		SPEED = 400
+		SPEED = 500
 		velocity.x = direction * SPEED
 		$Sprite2D.flip_h = true
 		$Sprite2D/AnimationPlayer.play('walking')
 	elif Input.is_action_pressed("ui_right"):
-		SPEED = 400
+		SPEED = 500
 		velocity.x = direction * SPEED
 		$Sprite2D.flip_h = false
 		$Sprite2D/AnimationPlayer.play('walking')
@@ -80,20 +84,30 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 	elif area.name == 'gun_prop':
 		Eventbus.gun_picked_up.emit()
 		$Sprite2D.texture = load('res://main_charachter_with_gun.png')
+		$AudioStreamPlayer2D.stream = load("res://jg-032316-sfx-8-bit-hit-6.mp3")
+		$AudioStreamPlayer2D.play()
 	elif area.name == 'level1_exit':
 		get_tree().change_scene_to_file("res://level1_passed.tscn")
 	elif area.name == 'jumpboots_prop':
 		double_jump = true
+		$AudioStreamPlayer2D.stream = load("res://jg-032316-sfx-8-bit-hit-6.mp3")
+		$AudioStreamPlayer2D.play()
 	elif 'ammo1' in area.name:
 		var ammo_type_event = 1
 		ammo1 = ammo1 + 10;
 		Eventbus.ammo_picked_up.emit(ammo_type_event)
 		Eventbus.shots_fired.emit(ammo1, ammo2)
+		$AudioStreamPlayer2D.stream = load("res://jg-032316-sfx-8-bit-score-1.mp3")
+		$AudioStreamPlayer2D.play()
 	elif 'ammo2' in area.name:
 		var ammo_type_event = 2
 		ammo2 = ammo2 + 10
 		Eventbus.ammo_picked_up.emit(ammo_type_event)
 		Eventbus.shots_fired.emit(ammo1, ammo2)
+		$AudioStreamPlayer2D.stream = load("res://jg-032316-sfx-8-bit-score-1.mp3")
+		$AudioStreamPlayer2D.play()
+	elif area.name == 'gun_iniciator':
+		$Sprite2D.texture = load('res://main_charachter_with_gun.png')
 	elif 'jump_inc' in area.name:
 		JUMP_VELOCITY = -800
 	elif 'jump_dec' in area.name:
@@ -107,7 +121,3 @@ func _grenade_hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'grenade_hitbox':
 			Eventbus.player_hit.emit(hp)
- 
-
-func _on_gun_iniciator_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

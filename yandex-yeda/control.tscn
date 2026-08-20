@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bgy1k4jyknfl3" path="res://control.gd" id="1_ee4bf"]
 [ext_resource type="Script" uid="uid://b7mijlgcehbdm" path="res://scripts/button3.gd" id="1_qtu10"]
 [ext_resource type="AudioStream" uid="uid://dlks713wrox8l" path="res://4740127884181504.wav" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://82ey805iu6np" path="res://scripts/button.gd" id="5_kbped"]
 
 [node name="Control" type="Control" unique_id=1949115812]
 layout_mode = 3
@@ -63,6 +64,16 @@ stream = ExtResource("3_qtu10")
 volume_db = 10.0
 autoplay = true
 
+[node name="Button3" type="Button" parent="." unique_id=1945986410]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 406.0
+offset_right = 664.0
+offset_bottom = 438.0
+text = "play2"
+script = ExtResource("5_kbped")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]
