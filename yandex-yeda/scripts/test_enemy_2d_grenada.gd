@@ -17,6 +17,9 @@ var attack_left = true
 
 var grenade_serial_number
 
+func _ready() -> void:
+	Eventbus.grenade_explosion.connect(_on_explode)
+
 func _attack():
 	if $'attack_timer'.is_stopped():
 		$'attack_timer'.start()
@@ -105,3 +108,6 @@ func _process(delta: float) -> void:
 		$Sprite2D/AnimationPlayer.stop()
 	elif attacking == false and stunned == false:
 		walking = true
+
+func _on_explode():
+	$AudioStreamPlayer2D.play()

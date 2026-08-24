@@ -75,7 +75,7 @@ func _on_hit(new_hp) -> void:
 
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
-	if  area.name == 'checkpoint':
+	if  'checkpoint' in area.name:
 		start_pos = area.position
 		Eventbus.checkpoint_reached.emit()
 		
@@ -121,3 +121,7 @@ func _grenade_hitcheck():
 	for area in $player_hitbox.get_overlapping_areas():
 		if area.name == 'grenade_hitbox':
 			Eventbus.player_hit.emit(hp)
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	pass # Replace with function body.

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://brle37j8uin3x" path="res://main-charachter.gd" id="1_2y5v1"]
 [ext_resource type="Texture2D" uid="uid://bmfjavrjh0cs" path="res://main_charachter_without_gun.png" id="2_j3ou1"]
 [ext_resource type="PackedScene" uid="uid://du425nqd6gpog" path="res://gun.tscn" id="3_j3ou1"]
+[ext_resource type="Script" uid="uid://bq4hm8ipcbsog" path="res://scripts/camera_2d.gd" id="4_ubsnm"]
 
 [sub_resource type="Animation" id="Animation_j3ou1"]
 resource_name = "walking"
@@ -53,6 +54,7 @@ shape = SubResource("RectangleShape2D_2y5v1")
 [node name="Gun" parent="." unique_id=248600477 instance=ExtResource("3_j3ou1")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1612101590]
+script = ExtResource("4_ubsnm")
 
 [node name="player_hitbox" type="Area2D" parent="." unique_id=419671164]
 

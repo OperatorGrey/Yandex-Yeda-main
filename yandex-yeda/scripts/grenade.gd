@@ -15,4 +15,5 @@ func throw_grenade(attack_left) -> void:
 
 func _on_timer_timeout() -> void:
 	Eventbus.grenade_explosion.emit()
+	Eventbus.grenade_explode.emit(15)
 	queue_free()
