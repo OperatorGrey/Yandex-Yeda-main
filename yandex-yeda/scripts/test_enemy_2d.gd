@@ -27,10 +27,12 @@ func _stun():
 func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "bullet":
 		hitpoints = hitpoints - 1
+		$AudioStreamPlayer2D2.play()
 	elif area.name == "bullet1":
 		hitpoints = hitpoints - 2
 		_stun()
 		stunned = true
+		$AudioStreamPlayer2D2.play()
 	if area.name == "player_hitbox":
 		_attack()
 		attacking = true

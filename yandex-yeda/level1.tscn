@@ -67,24 +67,31 @@ format = 3
 mix_rate = 48000
 stereo = true
 
-[sub_resource type="Curve2D" id="Curve2D_pieet"]
+[sub_resource type="Curve2D" id="Curve2D_5le63"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1195, 443, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_qiqrj"]
+[sub_resource type="Curve2D" id="Curve2D_pieet"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1015, 443, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_xm42n"]
+[sub_resource type="Curve2D" id="Curve2D_qiqrj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 840, 439, 0, 0, 0, 0, 994, 439, 0, 0, 0, 0, 840, 439)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_xm42n"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
 }
 point_count = 3
 
@@ -95,24 +102,17 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_8652m"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 853, 442, 0, 0, 0, 0, 1075, 442, 0, 0, 0, 0, 853, 442)
-}
-point_count = 3
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8vhr"]
 size = Vector2(235, 317)
 
-[sub_resource type="Curve2D" id="Curve2D_jy3fw"]
+[sub_resource type="Curve2D" id="Curve2D_8652m"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -332, -1, 0, 0, 0, 0, 56, -1, 0, 0, 0, 0, -332, -1)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_t8chk"]
+[sub_resource type="Curve2D" id="Curve2D_jy3fw"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -278, 0, 0, 0, 0, 0, 164, 0, 0, 0, 0, 0, -278, 0, 0, 0, 0, 0, -278, 0)
@@ -233,7 +233,7 @@ position = Vector2(1272, 1021)
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="player" unique_id=1952632472]
 position = Vector2(-1272, -1021)
 stream = SubResource("AudioStreamWAV_xhed0")
-volume_db = 24.0
+volume_db = 10.0
 autoplay = true
 script = ExtResource("28_5le63")
 
@@ -249,7 +249,7 @@ scale = Vector2(0.64000976, 0.5949797)
 
 [node name="Path2D" parent="." unique_id=212816321 instance=ExtResource("5_v8kj3")]
 position = Vector2(2431, 1029)
-curve = SubResource("Curve2D_pieet")
+curve = SubResource("Curve2D_5le63")
 
 [node name="checkpoint" parent="." unique_id=2080467967 instance=ExtResource("3_crycw")]
 position = Vector2(2442, 1288)
@@ -270,20 +270,20 @@ position = Vector2(8043, 445)
 scale = Vector2(1, 2.9200013)
 
 [node name="Path2D2" parent="." unique_id=2075143229 instance=ExtResource("5_v8kj3")]
-position = Vector2(5520, 622)
-curve = SubResource("Curve2D_qiqrj")
+position = Vector2(5523, 636)
+curve = SubResource("Curve2D_pieet")
 
 [node name="Path2D3" parent="." unique_id=436108445 instance=ExtResource("8_xy4tn")]
 position = Vector2(5958, 381)
-curve = SubResource("Curve2D_xm42n")
+curve = SubResource("Curve2D_qiqrj")
 
 [node name="Path2D4" parent="." unique_id=599699443 instance=ExtResource("8_xy4tn")]
 position = Vector2(7409, 646)
-curve = SubResource("Curve2D_6wmxb")
+curve = SubResource("Curve2D_xm42n")
 
 [node name="Path2D5" parent="." unique_id=1592040368 instance=ExtResource("8_xy4tn")]
 position = Vector2(8076, 647)
-curve = SubResource("Curve2D_8652m")
+curve = SubResource("Curve2D_6wmxb")
 
 [node name="level1_exit" type="Area2D" parent="." unique_id=1210920686]
 position = Vector2(9440, 979)
@@ -318,7 +318,8 @@ position = Vector2(4178, 953)
 script = ExtResource("13_n8vhr")
 
 [node name="jump_dec2" parent="." unique_id=1710066985 instance=ExtResource("12_eqrsh")]
-position = Vector2(7402, 443)
+position = Vector2(7394, 18.00003)
+scale = Vector2(1, 2.8224564)
 script = ExtResource("13_n8vhr")
 
 [node name="Tablichka(1)" type="Sprite2D" parent="." unique_id=2117093933]
@@ -400,10 +401,10 @@ scale = Vector2(0.5116945, 0.44981572)
 
 [node name="Path2D6" parent="." unique_id=1916726924 instance=ExtResource("27_43lh3")]
 position = Vector2(4844, 1088)
-curve = SubResource("Curve2D_jy3fw")
+curve = SubResource("Curve2D_8652m")
 
 [node name="Path2D7" parent="." unique_id=449443988 instance=ExtResource("27_43lh3")]
 position = Vector2(6071, 1087)
-curve = SubResource("Curve2D_t8chk")
+curve = SubResource("Curve2D_jy3fw")
 
 [connection signal="finished" from="player/AudioStreamPlayer2D2" to="player/AudioStreamPlayer2D2" method="_on_finished"]

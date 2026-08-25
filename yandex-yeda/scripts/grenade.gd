@@ -14,6 +14,10 @@ func throw_grenade(attack_left) -> void:
 	$Timer.start()
 
 func _on_timer_timeout() -> void:
+	$Timer2.start()
+	$Sprite2D.texture = load("res://granata_sprite_expl.png")
+
+func _on_timer_2_timeout() -> void:
 	Eventbus.grenade_explosion.emit()
 	Eventbus.grenade_explode.emit(15)
 	queue_free()

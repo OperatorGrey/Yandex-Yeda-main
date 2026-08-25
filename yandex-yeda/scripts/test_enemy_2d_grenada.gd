@@ -38,10 +38,12 @@ func _on_enemy_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "bullet":
 		hitpoints = hitpoints - 1
 		print('hit')
+		$AudioStreamPlayer2D2.play()
 	elif area.name == "bullet1":
 		hitpoints = hitpoints - 2
 		_stun()
 		print('hit')
+		$AudioStreamPlayer2D2.play()
 	if hitpoints <= 0:
 		get_parent().dead = true
 		queue_free()

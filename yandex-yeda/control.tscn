@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xj3vbvjyb05w" path="res://scripts/button1.gd" id="1_62e2m"]
 [ext_resource type="Script" uid="uid://bgy1k4jyknfl3" path="res://control.gd" id="1_ee4bf"]
 [ext_resource type="Script" uid="uid://b7mijlgcehbdm" path="res://scripts/button3.gd" id="1_qtu10"]
+[ext_resource type="Texture2D" uid="uid://cacqgikrtyv2v" path="res://images.png" id="2_fj5cn"]
 [ext_resource type="AudioStream" uid="uid://dlks713wrox8l" path="res://4740127884181504.wav" id="3_qtu10"]
 [ext_resource type="Script" uid="uid://82ey805iu6np" path="res://scripts/button.gd" id="5_kbped"]
 
@@ -14,6 +15,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ee4bf")
+
+[node name="Images" type="Sprite2D" parent="." unique_id=689472709]
+position = Vector2(578, 324.5)
+scale = Vector2(3.8533335, 3.8511906)
+texture = ExtResource("2_fj5cn")
 
 [node name="Label" type="Label" parent="." unique_id=1970877458]
 layout_mode = 1
