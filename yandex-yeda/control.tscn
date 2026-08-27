@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://b7mijlgcehbdm" path="res://scripts/button3.gd" id="1_qtu10"]
 [ext_resource type="Texture2D" uid="uid://cacqgikrtyv2v" path="res://images.png" id="2_fj5cn"]
 [ext_resource type="AudioStream" uid="uid://dlks713wrox8l" path="res://4740127884181504.wav" id="3_qtu10"]
-[ext_resource type="Script" uid="uid://82ey805iu6np" path="res://scripts/button.gd" id="5_kbped"]
 
 [node name="Control" type="Control" unique_id=1949115812]
 layout_mode = 3
@@ -17,8 +16,8 @@ grow_vertical = 2
 script = ExtResource("1_ee4bf")
 
 [node name="Images" type="Sprite2D" parent="." unique_id=689472709]
-position = Vector2(578, 324.5)
-scale = Vector2(3.8533335, 3.8511906)
+position = Vector2(575.49994, 323.99997)
+scale = Vector2(3.8366666, 3.845238)
 texture = ExtResource("2_fj5cn")
 
 [node name="Label" type="Label" parent="." unique_id=1970877458]
@@ -70,16 +69,6 @@ stream = ExtResource("3_qtu10")
 volume_db = 10.0
 autoplay = true
 
-[node name="Button3" type="Button" parent="." unique_id=1945986410]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 406.0
-offset_right = 664.0
-offset_bottom = 438.0
-text = "play2"
-script = ExtResource("5_kbped")
-
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
-[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]

@@ -61,9 +61,11 @@ func spawn_bullet(direction : Vector2):
 	if direction == Vector2.LEFT:
 		bullet.position = global_position - Vector2(100,0)
 		print('left')
+		bullet.get_node("Sprite2D").flip_h = true
 	else:
 		bullet.position = global_position + Vector2(100,0)
 		print('right')
+		bullet.get_node("Sprite2D").flip_h = false
 	bullet.direction = direction 
 	get_tree().root.add_child(bullet)
 
